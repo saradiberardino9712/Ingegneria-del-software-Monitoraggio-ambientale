@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
+   <children>
+      <Pane prefHeight="50.0" prefWidth="1000.0">
+         <children>
+            <Label layoutX="656.0" layoutY="13.0" text="Gestore di edificio">
+               <font>
+                  <Font name="Cambria Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnLogout" layoutX="889.0" layoutY="11.0" mnemonicParsing="false" onAction="#Logout" text="Logout">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="txtnomeedificio" layoutX="21.0" layoutY="13.0" text="Nome  edificio ">
+               <font>
+                  <Font name="Cambria Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Profilo" />
+        </menus>
+      </MenuBar>
+      <Label layoutX="24.0" layoutY="87.0" text="Informazioni dell'edificio:">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="126.0" text="Nome edificio:">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="164.0" text="N° piani:">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="200.0" text="Elenco piani:">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listviewpiani" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
+      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="114.39995956420898" text="Tipologia sensore" />
+          <TableColumn prefWidth="84.80000305175781" text="N° sensori" />
+        </columns>
+      </TableView>
+      <Separator layoutX="250.0" layoutY="77.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="624.3" />
+      <Label fx:id="txtnomeedificio1" layoutX="124.0" layoutY="126.0" />
+      <Label fx:id="txtnpiani" layoutX="124.0" layoutY="164.0" />
+      <TabPane layoutX="255.0" layoutY="79.0" prefHeight="618.0" prefWidth="745.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Piano 1">
+               <content>
+                  <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="47.20002746582031" text="Stato" />
+                      <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
+                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                    </columns>
+                  </TableView>
+               </content></Tab>
+            <Tab text="Piano 2">
+               <content>
+                  <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn prefWidth="47.20002746582031" text="Stato" />
+                        <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
+                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+          <Tab text="Piano 3">
+               <content>
+                  <TableView fx:id="table3" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn prefWidth="47.20002746582031" text="Stato" />
+                        <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
+                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                     </columns>
+                  </TableView>
+               </content></Tab>
+          <Tab text="Piano 4">
+               <content>
+                  <TableView fx:id="table4" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn prefWidth="47.20002746582031" text="Stato" />
+                        <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
+                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                     </columns>
+                  </TableView>
+               </content></Tab>
+            <Tab text="Piano 5">
+               <content>
+                  <TableView fx:id="table5" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn prefWidth="47.20002746582031" text="Stato" />
+                        <TableColumn prefWidth="143.20001220703125" text="Data - Ora" />
+                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                     </columns>
+                  </TableView>
+               </content></Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
