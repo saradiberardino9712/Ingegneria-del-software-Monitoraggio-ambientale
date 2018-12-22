@@ -19,8 +19,8 @@ public class Edificio {
 		return this.npiani;
 	}
 	
-	public static String prendiedificio() {
+	public static Edificio prendiedificio() {
 		Edificio newedificio= (Edificio) new DBEdificio().retrieve();
-		return newedificio.nomeedificio;
+		return newedificio;
 	}
 }

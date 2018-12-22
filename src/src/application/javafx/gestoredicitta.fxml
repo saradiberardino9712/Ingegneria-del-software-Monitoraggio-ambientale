@@ -63,8 +63,8 @@
       <ListView fx:id="listviewzone" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
       <TableView fx:id="tablecitta" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="221.0">
         <columns>
-          <TableColumn prefWidth="132.0000057220459" text="Tipologia sensore" />
-          <TableColumn prefWidth="88.79998779296875" text="N° sensori" />
+          <TableColumn fx:id="tiposensore" prefWidth="132.0000057220459" text="Tipologia sensore" />
+          <TableColumn fx:id="conteggio" prefWidth="88.79998779296875" text="N° sensori" />
         </columns>
       </TableView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="284.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">

@@ -60,10 +60,10 @@
          </font>
       </Label>
       <ListView fx:id="listviewedifici" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
-      <TableView fx:id="tablezona" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tablezona" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="221.0">
         <columns>
-          <TableColumn prefWidth="114.39995956420898" text="Tipologia sensore" />
-          <TableColumn prefWidth="84.80000305175781" text="N° sensori" />
+          <TableColumn fx:id="tiposensore" prefWidth="137.5999813079834" text="Tipologia sensore" />
+          <TableColumn fx:id="conteggio" prefWidth="83.20001220703125" text="N° sensori" />
         </columns>
       </TableView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">

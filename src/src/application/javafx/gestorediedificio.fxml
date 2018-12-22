@@ -60,10 +60,10 @@
          </font>
       </Label>
       <ListView fx:id="listviewpiani" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
-      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="215.0">
         <columns>
-          <TableColumn prefWidth="114.39995956420898" text="Tipologia sensore" />
-          <TableColumn prefWidth="84.80000305175781" text="N° sensori" />
+          <TableColumn fx:id="tiposensore" prefWidth="132.79999351501465" text="Tipologia sensore" />
+          <TableColumn fx:id="conteggio" prefWidth="81.5999755859375" text="N° sensori" />
         </columns>
       </TableView>
       <Separator layoutX="250.0" layoutY="77.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="624.3" />
@@ -75,14 +75,14 @@
                <content>
                   <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="47.20002746582031" text="Stato" />
-                      <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
-                        <TableColumn prefWidth="124.0" text="Tipo Sensore" />
-                        <TableColumn prefWidth="117.5999755859375" text="ID sensore" />
-                        <TableColumn prefWidth="101.60003662109375" text="Valore" />
-                        <TableColumn prefWidth="67.20001220703125" text="Stanza" />
-                        <TableColumn prefWidth="71.99993896484375" text="Edificio" />
-                        <TableColumn prefWidth="73.60003662109375" text="Zona" />
+                      <TableColumn fx:id="stato" prefWidth="47.20002746582031" text="Stato" />
+                      <TableColumn fx:id="dataora" prefWidth="143.20001220703125" text="Data- Ora" />
+                        <TableColumn fx:id="tipo" prefWidth="124.0" text="Tipo Sensore" />
+                        <TableColumn fx:id="ids" prefWidth="117.5999755859375" text="ID sensore" />
+                        <TableColumn fx:id="valore" prefWidth="101.60003662109375" text="Valore" />
+                        <TableColumn fx:id="stanza" prefWidth="67.20001220703125" text="Stanza" />
+                        <TableColumn fx:id="edificio" prefWidth="71.99993896484375" text="Edificio" />
+                        <TableColumn fx:id="zona" prefWidth="73.60003662109375" text="Zona" />
                     </columns>
                   </TableView>
                </content></Tab>

@@ -2,6 +2,8 @@ package FrontController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Sensore;
 import Model.Zona;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -36,7 +40,7 @@ public class gestoredizonaController {
 			"Edificio 4", "Edificio 5", "Edificio 6", "Edificio 7");
 
     @FXML
-    private TableView<?> tablezona;
+    private TableView<Sensore> tablezona;
 
     @FXML
     private Button btnedificio1;
@@ -73,6 +77,12 @@ public class gestoredizonaController {
 
     @FXML
     private Label txtnedifici;
+    
+    @FXML
+    private TableColumn<Sensore, String> tiposensore;
+
+    @FXML
+    private TableColumn<Sensore, Integer> conteggio;
 
     @FXML
     void Logout(ActionEvent event) {
@@ -97,6 +107,8 @@ public class gestoredizonaController {
         assert btnedificio10 != null : "fx:id=\"btnedificio10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtnomezona1 != null : "fx:id=\"txtnomezona1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtnedifici != null : "fx:id=\"txtnedifici\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert tiposensore != null : "fx:id=\"tiposensore\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert conteggio != null : "fx:id=\"conteggio\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         setta();
     }
     
@@ -106,6 +118,11 @@ public class gestoredizonaController {
     	txtnomezona1.setText(zona.getNomezona());
     	txtnedifici.setText(Integer.toString(zona.getNedifici()));
     	listviewedifici.setItems(list);
+    	ObservableList<Sensore> lista = FXCollections.observableArrayList();
+    	lista=Sensore.prenditips();
+    	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
+    	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
+    	tablezona.setItems(lista);
     }
     
     public void Edificio(ActionEvent event) throws Exception {
