@@ -13,57 +13,57 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
    <children>
-      <Pane prefHeight="50.0" prefWidth="1000.0">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #4dffb8;">
          <children>
-            <Label layoutX="656.0" layoutY="13.0" text="Gestore di edificio">
+            <Label layoutX="613.0" layoutY="5.0" text="Gestore Di Edificio">
                <font>
-                  <Font name="Cambria Bold" size="20.0" />
+                  <Font name="Cambria Bold Italic" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="889.0" layoutY="11.0" mnemonicParsing="false" onAction="#Logout" text="Logout">
+            <Button fx:id="btnLogout" layoutX="918.0" layoutY="13.0" mnemonicParsing="false" onAction="#Logout" style="-fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1; -fx-border-color: black;" text="Logout">
                <font>
                   <Font name="Cambria Bold" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="txtnomeedificio" layoutX="21.0" layoutY="13.0" text="Nome  edificio ">
+            <Label fx:id="txtnomeedificio" layoutX="21.0" layoutY="13.0" text="Nome Edificio ">
                <font>
-                  <Font name="Cambria Bold" size="20.0" />
+                  <Font name="Cambria Bold" size="26.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0">
+      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="Profilo" />
         </menus>
       </MenuBar>
-      <Label layoutX="24.0" layoutY="87.0" text="Informazioni dell'edificio:">
+      <Label layoutX="24.0" layoutY="87.0" text="Informazioni Dell'Edificio:">
          <font>
-            <Font name="Times New Roman" size="18.0" />
+            <Font name="Cambria" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="126.0" text="Nome edificio:">
+      <Label layoutX="24.0" layoutY="126.0" text="Nome Edificio:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="164.0" text="N° piani:">
+      <Label layoutX="24.0" layoutY="164.0" text="N° Piani:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="200.0" text="Elenco piani:">
+      <Label layoutX="24.0" layoutY="200.0" text="Elenco Piani:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewpiani" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
-      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="215.0">
+      <ListView fx:id="listviewpiani" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
+      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="215.0" style="-fx-background-color: #ffffe6;">
         <columns>
-          <TableColumn fx:id="tiposensore" prefWidth="132.79999351501465" text="Tipologia sensore" />
-          <TableColumn fx:id="conteggio" prefWidth="81.5999755859375" text="N° sensori" />
+          <TableColumn fx:id="tiposensore" prefWidth="132.79999351501465" text="Tipologia Sensore" />
+          <TableColumn fx:id="conteggio" prefWidth="81.5999755859375" text="N° Sensori" />
         </columns>
       </TableView>
       <Separator layoutX="250.0" layoutY="77.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="624.3" />
@@ -73,7 +73,7 @@
         <tabs>
             <Tab text="Piano 1">
                <content>
-                  <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
                     <columns>
                       <TableColumn fx:id="stato" prefWidth="47.20002746582031" text="Stato" />
                       <TableColumn fx:id="dataora" prefWidth="143.20001220703125" text="Data- Ora" />
@@ -88,7 +88,7 @@
                </content></Tab>
             <Tab text="Piano 2">
                <content>
-                  <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
                      <columns>
                         <TableColumn prefWidth="47.20002746582031" text="Stato" />
                         <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
@@ -104,7 +104,7 @@
             </Tab>
           <Tab text="Piano 3">
                <content>
-                  <TableView fx:id="table3" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="table3" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
                      <columns>
                         <TableColumn prefWidth="47.20002746582031" text="Stato" />
                         <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
@@ -119,7 +119,7 @@
                </content></Tab>
           <Tab text="Piano 4">
                <content>
-                  <TableView fx:id="table4" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="table4" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
                      <columns>
                         <TableColumn prefWidth="47.20002746582031" text="Stato" />
                         <TableColumn prefWidth="143.20001220703125" text="Data- Ora" />
@@ -134,7 +134,7 @@
                </content></Tab>
             <Tab text="Piano 5">
                <content>
-                  <TableView fx:id="table5" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="table5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
                      <columns>
                         <TableColumn prefWidth="47.20002746582031" text="Stato" />
                         <TableColumn prefWidth="143.20001220703125" text="Data - Ora" />

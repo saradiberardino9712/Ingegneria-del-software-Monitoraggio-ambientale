@@ -14,57 +14,57 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredicittaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredicittaController">
    <children>
-      <Pane prefHeight="50.0" prefWidth="1000.0">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #4dffb8;">
          <children>
-            <Label layoutX="656.0" layoutY="13.0" text="Gestore di città">
+            <Label layoutX="635.0" layoutY="2.0" text="Gestore Di Città">
                <font>
-                  <Font name="Cambria Bold" size="20.0" />
+                  <Font name="Cambria Bold Italic" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="889.0" layoutY="11.0" mnemonicParsing="false" onAction="#Logout" text="Logout">
+            <Button fx:id="btnLogout" layoutX="906.0" layoutY="10.0" mnemonicParsing="false" onAction="#Logout" prefHeight="28.0" prefWidth="73.0" style="-fx-border-width: 1 1 1 1; -fx-border-radius: 1px 1px 1px 1px; -fx-border-color: black;" text="Logout">
                <font>
                   <Font name="Cambria Bold" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="txtnomecitta" layoutX="21.0" layoutY="13.0" text="Nome città ">
+            <Label fx:id="txtnomecitta" layoutX="30.0" layoutY="11.0" text="Nome Città ">
                <font>
-                  <Font name="Cambria Bold" size="20.0" />
+                  <Font name="Cambria Bold" size="26.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0">
+      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="Profilo" />
         </menus>
       </MenuBar>
-      <Label layoutX="24.0" layoutY="87.0" text="Informazioni della città:">
+      <Label layoutX="24.0" layoutY="87.0" text="Informazioni Della Città:">
          <font>
-            <Font name="Times New Roman" size="18.0" />
+            <Font name="Cambria" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="126.0" text="Nome città:">
+      <Label layoutX="24.0" layoutY="126.0" text="Nome Città:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="164.0" text="N° zone:">
+      <Label layoutX="24.0" layoutY="164.0" text="N° Zone:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="200.0" text="Elenco zone:">
+      <Label layoutX="24.0" layoutY="200.0" text="Elenco Zone:">
          <font>
-            <Font name="Times New Roman" size="14.0" />
+            <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewzone" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" />
-      <TableView fx:id="tablecitta" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="221.0">
+      <ListView fx:id="listviewzone" layoutX="32.0" layoutY="234.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
+      <TableView fx:id="tablecitta" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="221.0" style="-fx-background-color: #ffffe6;">
         <columns>
-          <TableColumn fx:id="tiposensore" prefWidth="132.0000057220459" text="Tipologia sensore" />
-          <TableColumn fx:id="conteggio" prefWidth="88.79998779296875" text="N° sensori" />
+          <TableColumn fx:id="tiposensore" prefWidth="132.0000057220459" text="Tipologia Sensore" />
+          <TableColumn fx:id="conteggio" prefWidth="88.79998779296875" text="N° Sensori" />
         </columns>
       </TableView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="284.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
@@ -72,7 +72,7 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonaA" layoutX="332.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" text="Zona A">
+      <Button fx:id="btnzonaA" layoutX="332.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -87,12 +87,12 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonaB" layoutX="511.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" text="Zona B">
+      <Button fx:id="btnzonaB" layoutX="511.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonac" layoutX="698.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" text="Zona C">
+      <Button fx:id="btnzonac" layoutX="698.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -132,37 +132,37 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonad" layoutX="867.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" text="Zona D">
+      <Button fx:id="btnzonad" layoutX="867.0" layoutY="247.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonae" layoutX="332.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" text="Zona E">
+      <Button fx:id="btnzonae" layoutX="332.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonaf" layoutX="511.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" text="Zona F">
+      <Button fx:id="btnzonaf" layoutX="511.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonag" layoutX="698.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" text="Zona G">
+      <Button fx:id="btnzonag" layoutX="698.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonah" layoutX="867.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" text="Zona H">
+      <Button fx:id="btnzonah" layoutX="867.0" layoutY="448.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonai" layoutX="331.0" layoutY="648.0" mnemonicParsing="false" onAction="#Zona" text="Zona I">
+      <Button fx:id="btnzonai" layoutX="331.0" layoutY="648.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonal" layoutX="511.0" layoutY="648.0" mnemonicParsing="false" onAction="#Zona" text="Zona L">
+      <Button fx:id="btnzonal" layoutX="511.0" layoutY="648.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
