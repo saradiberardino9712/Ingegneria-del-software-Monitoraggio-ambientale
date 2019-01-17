@@ -20,7 +20,7 @@ public class DBSensore {
 		ResultSet resultSet = null;
 		ObservableList<Sensore> listasensori = FXCollections.observableArrayList();
 		try{
-			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/monitoraggioambientale","root","ciao");
+			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/edificioza01","root","ciao");
 			Statement = connect.createStatement();
 			resultSet = Statement.executeQuery("select tiposensore,count(tiposensore) as conteggio from sensore s join stanza s1 on (s.idstanza=s1.ID) where s1.idedificio=1 group by tiposensore order by tiposensore");
 			while(resultSet.next()) {

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="992.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredicittaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="992.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredicittaController">
    <children>
       <Pane layoutX="2.0" layoutY="-9.0" prefHeight="79.0" prefWidth="988.0" style="-fx-background-color: #4dffb8;">
          <children>
@@ -67,7 +67,7 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonaA" layoutX="327.0" layoutY="260.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaA" layoutX="327.0" layoutY="260.0" mnemonicParsing="false" onAction="#ZonaA" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -82,12 +82,12 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonaB" layoutX="506.0" layoutY="260.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaB" layoutX="506.0" layoutY="260.0" mnemonicParsing="false" onAction="#ZonaB" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonac" layoutX="693.0" layoutY="260.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaC" layoutX="693.0" layoutY="260.0" mnemonicParsing="false" onAction="#ZonaC" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -127,37 +127,37 @@
             <Image url="@img%20città.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnzonad" layoutX="862.0" layoutY="260.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaD" layoutX="862.0" layoutY="260.0" mnemonicParsing="false" onAction="#ZonaD" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonae" layoutX="327.0" layoutY="461.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaE" layoutX="327.0" layoutY="461.0" mnemonicParsing="false" onAction="#ZonaE" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonaf" layoutX="506.0" layoutY="461.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaF" layoutX="506.0" layoutY="461.0" mnemonicParsing="false" onAction="#ZonaF" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonag" layoutX="693.0" layoutY="461.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaG" layoutX="693.0" layoutY="461.0" mnemonicParsing="false" onAction="#ZonaG" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonah" layoutX="862.0" layoutY="461.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaH" layoutX="862.0" layoutY="461.0" mnemonicParsing="false" onAction="#ZonaH" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonai" layoutX="326.0" layoutY="661.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaI" layoutX="326.0" layoutY="661.0" mnemonicParsing="false" onAction="#ZonaI" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnzonal" layoutX="506.0" layoutY="661.0" mnemonicParsing="false" onAction="#Zona" prefHeight="26.0" prefWidth="63.0">
+      <Button fx:id="btnzonaL" layoutX="506.0" layoutY="661.0" mnemonicParsing="false" onAction="#ZonaL" prefHeight="26.0" prefWidth="63.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -204,5 +204,7 @@
           <Menu mnemonicParsing="false" text="PROFILO" />
         </menus>
       </MenuBar>
+      <Label fx:id="txtnomecitta1" layoutX="107.0" layoutY="143.0" text="Label" />
+      <Label fx:id="txtnzone" layoutX="90.0" layoutY="181.0" text="Label" />
    </children>
 </Pane>

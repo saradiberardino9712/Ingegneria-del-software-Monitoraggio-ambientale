@@ -9,15 +9,15 @@ public class Utente {
 	private String cognome;
 	private String password;
 	private String email;
-	private String area;
 	private String id_area;
+	private String ruolo;
 	
-	private Utente(String nome, String cognome, String password, String email, String area, String id_area) {
+	private Utente(String nome, String cognome, String password, String email, String ruolo, String id_area) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.password = password;
 		this.email = email;
-		this.area=area;
+		this.ruolo=ruolo;
 		this.id_area=id_area;
 	}
 	
@@ -41,8 +41,8 @@ public class Utente {
 		return id_area;
 	}
 	
-	public String getArea() {
-		return area;
+	public String getRuolo() {
+		return ruolo;
 	}
 	
 	public static Utente cercautentedb(String email, String password) {
@@ -51,6 +51,19 @@ public class Utente {
 		lista.add(password);
 		Utente utente=(Utente) new DBUtente().retrieve(lista);
 		return utente;
+	}
+	
+	public static boolean aggiornautentedb(boolean valore) {
+		ArrayList<Object> lista =new ArrayList<>();
+		lista.add(instance);
+		lista.add(valore);
+		boolean aggiornadb=new DBUtente().updatelogin(lista);
+		return aggiornadb;
+	}
+	
+	public static Utente delete() {
+		instance = null;
+		return instance;
 	}
 	
 	public static final synchronized Utente setInstance(String nome, String cognome,String password, String email, String area, String id_area) {

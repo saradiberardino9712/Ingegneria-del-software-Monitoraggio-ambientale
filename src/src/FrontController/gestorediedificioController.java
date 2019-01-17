@@ -1,8 +1,9 @@
 package FrontController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import Controller.controller_logout;
 import Model.Dato;
 import Model.Edificio;
 import Model.Sensore;
@@ -10,12 +11,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class gestorediedificioController {
 
@@ -90,12 +96,7 @@ public class gestorediedificioController {
 
     @FXML
     private TableView<?> table5;
-
-    @FXML
-    void Logout(ActionEvent event) {
-
-    }
-
+    
     @FXML
     void initialize() {
         assert btnLogout != null : "fx:id=\"btnLogout\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
@@ -145,5 +146,18 @@ public class gestorediedificioController {
     	zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
     	table1.setItems(lista1);
     }
+	
+    public void Logout(ActionEvent event) throws IOException {
+    	boolean disattiva=controller_logout.disattivautente();
+    	if(disattiva) {
+    		((Node)event.getSource()).getScene().getWindow().hide();
+    		Stage primaryStage = new Stage();
+    		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/login.fxml"));
+    		Scene scene = new Scene(root);
+    		primaryStage.setScene(scene);
+    		primaryStage.show();
+    	}
+    }
+
 }
 

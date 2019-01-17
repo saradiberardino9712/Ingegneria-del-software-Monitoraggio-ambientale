@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 import Database.DBCitta;
 
 public class Città {
@@ -20,8 +22,10 @@ public class Città {
 		return this.nzone;
 	}
 	
-	public static Città prendicittà() {
-		Città newcittà= (Città) new DBCitta().retrieve();
+	public static Città prendicittà(String cittàdata) {
+		ArrayList<Object> lista = new ArrayList<>();
+		lista.add(cittàdata);
+		Città newcittà= (Città) new DBCitta().retrieve(lista);
 		return newcittà;
 	}
 }

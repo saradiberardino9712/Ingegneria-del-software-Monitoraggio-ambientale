@@ -58,17 +58,17 @@ public class DBCitta {
 	
 	
 	@SuppressWarnings("finally")
-	public Object retrieve() {
+	public Object retrieve(ArrayList<Object> args) {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
 		Città città = null;
 		try{
-			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/monitoraggioambientale","root","ciao");
+			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/edificioza01","root","ciao");
 			Statement = connect.createStatement();
-			resultSet = Statement.executeQuery("SELECT * FROM monitoraggioambientale.città");
+			resultSet = Statement.executeQuery("SELECT * FROM edificioza01.city where Nomecitta='"+ args.get(0)+ "'");
 			while(resultSet.next()) {
-				String nomecittà=resultSet.getString("ID_città");
+				String nomecittà=resultSet.getString("Nomecitta");
 				int nzone = resultSet.getInt("n_zone");
 				città = new Città(nomecittà,nzone);
 				connect.close();

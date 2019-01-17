@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 import Database.DBZona;
 
 public class Zona {
@@ -19,8 +21,10 @@ public class Zona {
 		return this.nedifici;
 	}
 	
-	public static Zona prendizona() {
-		Zona newzona= (Zona) new DBZona().retrieve();
+	public static ArrayList<Zona> prendizone(String cittàdata) {
+		ArrayList<Object> lista = new ArrayList<>();
+		lista.add(cittàdata);
+		ArrayList<Zona> newzona= (ArrayList<Zona>) new DBZona().retrieve(lista);
 		return newzona;
 	}
 	

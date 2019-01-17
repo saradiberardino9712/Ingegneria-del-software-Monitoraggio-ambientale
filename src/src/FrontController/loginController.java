@@ -49,7 +49,11 @@ public class loginController {
 			alert.setTitle("Login");
 			alert.setHeaderText("Login effettuato!!");
 			alert.showAndWait();
-			switch(Utente.getIstance().getArea()) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Login");
+			alert1.setHeaderText(Utente.getIstance().getRuolo());
+			alert1.showAndWait();
+			switch(Utente.getIstance().getRuolo()) {
 				case "edificio":((Node) event.getSource()).getScene().getWindow().hide();
 								Stage primaryStage = new Stage();
 								Pane root = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/gestorediedificio.fxml"));
@@ -57,7 +61,7 @@ public class loginController {
 								primaryStage.setScene(scene);
 								primaryStage.show();
 								break;
-				case "città":((Node) event.getSource()).getScene().getWindow().hide();
+				case "citta":((Node) event.getSource()).getScene().getWindow().hide();
 							 Stage primaryStage1 = new Stage();
 							 Pane root1 = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/gestoredicitta.fxml"));
 							 Scene scene1 = new Scene(root1);
@@ -66,11 +70,18 @@ public class loginController {
 							 break;
 				case "zona":((Node) event.getSource()).getScene().getWindow().hide();
 							Stage primaryStage2 = new Stage();
-							Pane root2 = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/gestoredicitta.fxml"));
+							Pane root2 = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/gestoredizona.fxml"));
 							Scene scene2 = new Scene(root2);
 							primaryStage2.setScene(scene2);
 							primaryStage2.show();
 							break;
+				case "admin":((Node) event.getSource()).getScene().getWindow().hide();
+							 Stage primaryStage3 = new Stage();
+							 Pane root3 = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/Amministratore.fxml"));
+							 Scene scene3 = new Scene(root3);
+							 primaryStage3.setScene(scene3);
+							 primaryStage3.show();
+							 break;
 			}
 		}
 	}

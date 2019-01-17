@@ -38,6 +38,15 @@ public class controller_login {
 			txtPassword.setStyle(" -fx-base: red;");
 			return false; 
 		}
+		if(!(attiva(utente)))
+			return false;
 		return true;
+	}
+	
+	public static boolean attiva(Utente utente) {
+		if(Utente.aggiornautentedb(true)) {
+			return true;
+		}	
+		return false;
 	}
 }
