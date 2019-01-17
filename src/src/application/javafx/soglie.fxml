@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="67.0" prefWidth="600.0" style="-fx-background-color: #4dffb8;" />
+      <Label alignment="CENTER_RIGHT" layoutX="231.0" layoutY="12.0" prefHeight="44.0" prefWidth="280.0" text="Amministratore" textAlignment="RIGHT">
+         <font>
+            <Font name="Cambria Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="527.0" layoutY="8.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Home">
+         <font>
+            <Font name="Cambria Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="txtdataora" layoutX="8.0" layoutY="378.0" />
+      <TableView layoutX="14.0" layoutY="112.0" prefHeight="200.0" prefWidth="556.0">
+        <columns>
+          <TableColumn prefWidth="130.0" text="IDSoglia" />
+          <TableColumn prefWidth="161.0" text="Tipo Soglia" />
+            <TableColumn prefWidth="128.0" text="Priorità Soglia" />
+            <TableColumn prefWidth="136.0" text="Variazione" />
+        </columns>
+      </TableView>
+      <Label fx:id="txtdataora" layoutX="8.0" layoutY="378.0" />
+      <MenuBar layoutY="67.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #ffffe6;">
+         <menus>
+            <Menu mnemonicParsing="false" text="Gestione Sistema">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <MenuBar layoutX="127.0" layoutY="67.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #d9d9d9;">
+         <menus>
+            <Menu mnemonicParsing="false" text="Gestione Soglia">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="65.0" fitWidth="82.0" layoutY="1.0">
+         <image>
+            <Image url="@logo.PNG" />
+         </image>
+      </ImageView>
+      <Button layoutX="15.0" layoutY="322.0" mnemonicParsing="false" text="Modifica" />
+   </children>
+</Pane>

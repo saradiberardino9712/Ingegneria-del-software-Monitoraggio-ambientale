@@ -10,79 +10,81 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="977.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
    <children>
-      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #4dffb8;">
+      <Pane prefHeight="65.0" prefWidth="979.0" style="-fx-background-color: #4dffb8;">
          <children>
-            <Label layoutX="613.0" layoutY="5.0" text="Gestore Di Edificio">
+            <Label layoutX="556.0" layoutY="13.0" text="Gestore Di Edificio">
                <font>
                   <Font name="Cambria Bold Italic" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="918.0" layoutY="13.0" mnemonicParsing="false" onAction="#Logout" style="-fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1; -fx-border-color: black;" text="Logout">
+            <Button fx:id="btnLogout" layoutX="902.0" layoutY="9.0" mnemonicParsing="false" onAction="#Logout" style="-fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1; -fx-border-color: black;" text="Logout">
                <font>
                   <Font name="Cambria Bold" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="txtnomeedificio" layoutX="21.0" layoutY="13.0" text="Nome Edificio ">
+            <Label fx:id="txtnomeedificio" layoutX="108.0" layoutY="25.0" text="Nome Edificio ">
                <font>
                   <Font name="Cambria Bold" size="26.0" />
                </font>
             </Label>
+            <ImageView fitHeight="70.0" fitWidth="82.0" layoutX="-2.0" layoutY="-3.0">
+               <image>
+                  <Image url="@logo.PNG" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <MenuBar layoutY="50.0" maxWidth="-Infinity" prefWidth="1000.0" style="-fx-background-color: #ffffe6;">
-        <menus>
-          <Menu mnemonicParsing="false" text="Profilo" />
-        </menus>
-      </MenuBar>
-      <Label layoutX="24.0" layoutY="87.0" text="Informazioni Dell'Edificio:">
+      <Label layoutX="23.0" layoutY="98.0" text="Informazioni Dell'Edificio:">
          <font>
             <Font name="Cambria" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="126.0" text="Nome Edificio:">
+      <Label layoutX="23.0" layoutY="137.0" text="Nome Edificio:">
          <font>
             <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="164.0" text="N° Piani:">
+      <Label layoutX="23.0" layoutY="175.0" text="N° Piani:">
          <font>
             <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="200.0" text="Elenco Piani:">
+      <Label layoutX="23.0" layoutY="211.0" text="Elenco Piani:">
          <font>
             <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewpiani" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
-      <TableView fx:id="tableedificio" layoutX="24.0" layoutY="461.0" prefHeight="200.0" prefWidth="215.0" style="-fx-background-color: #ffffe6;">
+      <ListView fx:id="listviewpiani" layoutX="19.0" layoutY="230.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
+      <TableView fx:id="tableedificio" layoutX="23.0" layoutY="447.0" prefHeight="200.0" prefWidth="215.0" style="-fx-background-color: #ffffe6;">
         <columns>
           <TableColumn fx:id="tiposensore" prefWidth="132.79999351501465" text="Tipologia Sensore" />
           <TableColumn fx:id="conteggio" prefWidth="81.5999755859375" text="N° Sensori" />
         </columns>
       </TableView>
-      <Separator layoutX="250.0" layoutY="77.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="624.3" />
+      <Separator layoutX="249.0" layoutY="86.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="615.0" prefWidth="7.0" />
       <Label fx:id="txtnomeedificio1" layoutX="124.0" layoutY="126.0" />
       <Label fx:id="txtnpiani" layoutX="124.0" layoutY="164.0" />
-      <TabPane layoutX="255.0" layoutY="79.0" prefHeight="618.0" prefWidth="745.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="255.0" layoutY="90.0" prefHeight="603.0" prefWidth="721.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Piano 1">
                <content>
-                  <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6fff5;">
+                  <TableView fx:id="table1" prefHeight="540.0" prefWidth="745.0" style="-fx-background-color: #e6fff5;">
                     <columns>
                       <TableColumn fx:id="stato" prefWidth="47.20002746582031" text="Stato" />
-                      <TableColumn fx:id="dataora" prefWidth="143.20001220703125" text="Data- Ora" />
-                        <TableColumn fx:id="tipo" prefWidth="124.0" text="Tipo Sensore" />
-                        <TableColumn fx:id="ids" prefWidth="117.5999755859375" text="ID sensore" />
-                        <TableColumn fx:id="valore" prefWidth="101.60003662109375" text="Valore" />
-                        <TableColumn fx:id="stanza" prefWidth="67.20001220703125" text="Stanza" />
-                        <TableColumn fx:id="edificio" prefWidth="71.99993896484375" text="Edificio" />
-                        <TableColumn fx:id="zona" prefWidth="73.60003662109375" text="Zona" />
+                      <TableColumn fx:id="dataora" prefWidth="104.66668701171875" text="Data- Ora" />
+                        <TableColumn fx:id="tipo" prefWidth="109.0" text="Tipo Sensore" />
+                        <TableColumn fx:id="ids" prefWidth="99.33331298828125" text="ID sensore" />
+                        <TableColumn fx:id="valore" prefWidth="105.0" text="Valore" />
+                        <TableColumn fx:id="stanza" prefWidth="84.0" text="Stanza" />
+                        <TableColumn fx:id="edificio" prefWidth="89.6666259765625" text="Edificio" />
+                        <TableColumn fx:id="zona" text="Zona" />
                     </columns>
                   </TableView>
                </content></Tab>
@@ -149,5 +151,11 @@
                </content></Tab>
         </tabs>
       </TabPane>
+      <Label fx:id="txtdataora" layoutX="15.0" layoutY="678.0" />
+      <MenuBar layoutY="65.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="979.0" style="-fx-background-color: #ffffe6;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Profilo" />
+        </menus>
+      </MenuBar>
    </children>
 </Pane>
