@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Controller.controller_logout;
+import Controller.controller_visualizzazione;
 import Model.Dato;
 import Model.Edificio;
 import Model.Sensore;
+import Model.Utente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,11 +16,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -39,8 +43,6 @@ public class gestorediedificioController {
 
     @FXML
     private ListView<String> listviewpiani;
-    ObservableList<String> list = FXCollections.observableArrayList("Piano 1", "Piano 2", "Piano 3",
-			"Piano 4", "Piano 5");
 
     @FXML
     private TableView<Sensore> tableedificio;
@@ -122,15 +124,23 @@ public class gestorediedificioController {
         assert table5 != null : "fx:id=\"table5\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
         setta();
     }
- 
+    
 	public void setta() {
-    	Edificio e=Edificio.prendiedificio();
-    	txtnomeedificio.setText(e.getNomeedificio());
-    	txtnomeedificio1.setText(e.getNomeedificio());
+		String ed;
+    	if(Utente.getIstance().getRuolo().equals("edificio")) {
+    		ed=Utente.getIstance().getIDArea();
+    	}else {
+    		ed=gestoredizonaController.edificio;
+    		btnLogout.setVisible(false);
+    	}
+    	txtnomeedificio.setText(ed);
+    	txtnomeedificio1.setText(ed);
+    	Edificio e=Edificio.prendiedificio(ed);
     	txtnpiani.setText(Integer.toString(e.getNpiani()));
-    	listviewpiani.setItems(list);
+    	ObservableList<String> listpiani= controller_visualizzazione.prendipiani(ed);
+    	listviewpiani.setItems(listpiani);
     	ObservableList<Sensore> lista = FXCollections.observableArrayList();
-    	lista=Sensore.prenditips();
+    	lista=Sensore.prendiED();
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tableedificio.setItems(lista);

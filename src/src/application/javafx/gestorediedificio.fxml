@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="977.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="977.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestorediedificioController">
    <children>
       <Pane prefHeight="65.0" prefWidth="979.0" style="-fx-background-color: #4dffb8;">
          <children>
@@ -61,7 +61,7 @@
             <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewpiani" layoutX="19.0" layoutY="230.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
+      <ListView fx:id="listviewpiani" layoutX="23.0" layoutY="230.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
       <TableView fx:id="tableedificio" layoutX="23.0" layoutY="447.0" prefHeight="200.0" prefWidth="215.0" style="-fx-background-color: #ffffe6;">
         <columns>
           <TableColumn fx:id="tiposensore" prefWidth="132.79999351501465" text="Tipologia Sensore" />
@@ -69,8 +69,6 @@
         </columns>
       </TableView>
       <Separator layoutX="249.0" layoutY="86.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="615.0" prefWidth="7.0" />
-      <Label fx:id="txtnomeedificio1" layoutX="124.0" layoutY="126.0" />
-      <Label fx:id="txtnpiani" layoutX="124.0" layoutY="164.0" />
       <TabPane layoutX="255.0" layoutY="90.0" prefHeight="603.0" prefWidth="721.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Piano 1">
@@ -151,11 +149,24 @@
                </content></Tab>
         </tabs>
       </TabPane>
-      <Label fx:id="txtdataora" layoutX="15.0" layoutY="678.0" />
+      <Label fx:id="txtdataora" layoutX="15.0" layoutY="678.0">
+         <font>
+            <Font name="Cambria" size="11.0" />
+         </font></Label>
       <MenuBar layoutY="65.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="979.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="Profilo" />
         </menus>
       </MenuBar>
+      <Label fx:id="txtnomeedificio1" layoutX="124.0" layoutY="137.0" prefHeight="18.0" prefWidth="77.0">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtnpiani" layoutX="84.0" layoutY="175.0" prefHeight="18.0" prefWidth="88.0">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

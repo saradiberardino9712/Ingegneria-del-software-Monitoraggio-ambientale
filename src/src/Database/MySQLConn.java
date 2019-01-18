@@ -23,4 +23,12 @@ public class MySQLConn {
 		}
 		return conn;
 	}
+	
+	public static void close(Connection connect,Statement Statement,ResultSet resultSet) throws SQLException {
+		connect.close();
+		if(Statement!=null) {
+			Statement.close();
+		}
+		resultSet.close();
+	}
 }

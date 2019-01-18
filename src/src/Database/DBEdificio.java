@@ -1,8 +1,6 @@
 package Database;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,98 +10,60 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class DBEdificio {
-	@SuppressWarnings("finally")
-	public boolean insert(ArrayList<Object> args) {
+	
+	public ArrayList<Edificio> retrieveedifici(ArrayList<Object> args) {
 		Connection connect = null;
-		PreparedStatement preparedStatement = null;
-		boolean success=true;
-		try{	
-			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/monitoraggioambientale","root","ciao");
-			preparedStatement = connect.prepareStatement("INSERT INTO monitoraggioambientale.edificio(ID_edificio,n_piani) VALUES (?,?)");
-			preparedStatement.setString(1,(String)args.get(0));
-			preparedStatement.setInt(2,(int)args.get(1));
-			preparedStatement.executeUpdate();
-		}catch(SQLException e){
-			success=false;
+		Statement Statement = null;
+		ResultSet resultSet = null;
+		Edificio e = null;
+		ArrayList<Edificio> edifici = new ArrayList<>();
+		try{
+			connect=MySQLConn.getConnection();
+			Statement = connect.createStatement();
+			resultSet = Statement.executeQuery("SELECT e.idedificio,e.n_piani FROM edificioza01.zona z join edificioza01.edificio e on (z.ID=e.idzona) where z.idzona='"+args.get(0)+"'");
+			while(resultSet.next()) {
+				String nomeedificio=resultSet.getString("idedificio");
+				int npiani = resultSet.getInt("n_piani");
+				e = new Edificio(nomeedificio,npiani);
+				edifici.add(e);
+			}
+			MySQLConn.close(connect,Statement,resultSet);
+			return edifici;
+		}
+		catch(SQLException ex){
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Errore");
 			alert.setHeaderText("Errore Database");
-			alert.setContentText(e.getMessage());
+			alert.setContentText(ex.getMessage());
 			alert.showAndWait();
-		}catch(Exception e){
-			success=false;
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Errore");
-			alert.setHeaderText("Errore Generico");
-			alert.setContentText(e.getMessage());
-			alert.showAndWait();
-		}finally{
-				try{
-						if(connect!=null) connect.close();
-						if(preparedStatement!=null) preparedStatement.close();
-						return success;
-						}
-					catch(final SQLException e){
-						final Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("Errore");
-						alert.setHeaderText("Errore Database");
-						alert.setContentText(e.getMessage());
-						alert.showAndWait();
-						return false;
-						}
-					}
-		}	
+		}
+		return null;
+	}
 	
-	
-	@SuppressWarnings("finally")
-	public Object retrieve() {
+	public Edificio retrieve(String edificiodato) {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
 		Edificio edificio = null;
 		try{
-			connect=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/monitoraggioambientale","root","ciao");
+			connect=MySQLConn.getConnection();
 			Statement = connect.createStatement();
-			resultSet = Statement.executeQuery("SELECT * FROM monitoraggioambientale.edificio");
+			resultSet = Statement.executeQuery("SELECT * FROM edificioza01.edificio where idedificio='"+edificiodato+ "'");
 			while(resultSet.next()) {
-				String nomeedificio=resultSet.getString("ID_edificio");
+				String nomeedificio=resultSet.getString("idedificio");
 				int npiani = resultSet.getInt("n_piani");
 				edificio = new Edificio(nomeedificio,npiani);
-				connect.close();
-				Statement.close();
-				resultSet.close();
-				return edificio;
-			}	
+			}
+			MySQLConn.close(connect,Statement,resultSet);
+			return edificio;
 		}
-		catch(SQLException e){
+		catch(SQLException ex){
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Errore");
 			alert.setHeaderText("Errore Database");
-			alert.setContentText(e.getMessage());
+			alert.setContentText(ex.getMessage());
 			alert.showAndWait();
 		}
-		catch(Exception e){
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Errore");
-			alert.setHeaderText("Errore Generico");
-			alert.setContentText(e.getMessage());
-			alert.showAndWait();
-		}
-		finally{
-			try{
-				if(connect!=null) connect.close();
-				if(Statement!=null) Statement.close();
-				if(resultSet!=null) resultSet.close();
-				return edificio;
-			}
-			catch(final SQLException e){		
-				final Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Errore");
-				alert.setHeaderText("Errore Database");
-				alert.setContentText(e.getMessage());
-				alert.showAndWait();
-				return null;
-			}					
-		}
+		return null;
 	}
 }

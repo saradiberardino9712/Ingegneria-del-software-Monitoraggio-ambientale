@@ -49,10 +49,6 @@ public class loginController {
 			alert.setTitle("Login");
 			alert.setHeaderText("Login effettuato!!");
 			alert.showAndWait();
-			Alert alert1 = new Alert(AlertType.INFORMATION);
-			alert1.setTitle("Login");
-			alert1.setHeaderText(Utente.getIstance().getRuolo());
-			alert1.showAndWait();
 			switch(Utente.getIstance().getRuolo()) {
 				case "edificio":((Node) event.getSource()).getScene().getWindow().hide();
 								Stage primaryStage = new Stage();

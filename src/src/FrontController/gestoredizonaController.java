@@ -2,10 +2,13 @@ package FrontController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
-
 import Controller.controller_logout;
+import Controller.controller_visualizzazione;
 import Model.Sensore;
+import Model.Utente;
 import Model.Zona;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,11 +20,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class gestoredizonaController {
@@ -40,8 +43,6 @@ public class gestoredizonaController {
 
     @FXML
     private ListView<String> listviewedifici;
-    ObservableList<String> list = FXCollections.observableArrayList("Edificio 1", "Edificio 2", "Edificio 3",
-			"Edificio 4", "Edificio 5", "Edificio 6", "Edificio 7");
 
     @FXML
     private TableView<Sensore> tablezona;
@@ -92,94 +93,95 @@ public class gestoredizonaController {
     private Label txtdataora;
 
     @FXML
-    private RadioButton btnr1;
+    private Circle btng1;
 
     @FXML
-    private RadioButton btno1;
+    private Circle btnr1;
 
     @FXML
-    private RadioButton btng1;
+    private Circle btno1;
 
     @FXML
-    private RadioButton btnr2;
+    private Circle btng2;
 
     @FXML
-    private RadioButton btno2;
+    private Circle btnr2;
 
     @FXML
-    private RadioButton btng2;
+    private Circle btno2;
 
     @FXML
-    private RadioButton btnr3;
+    private Circle btng5;
 
     @FXML
-    private RadioButton btno3;
+    private Circle btnr5;
 
     @FXML
-    private RadioButton btng3;
+    private Circle btno5;
 
     @FXML
-    private RadioButton btnr4;
+    private Circle btng6;
 
     @FXML
-    private RadioButton btno4;
+    private Circle btnr6;
 
     @FXML
-    private RadioButton btng4;
+    private Circle btno6;
 
     @FXML
-    private RadioButton btnr5;
+    private Circle btng9;
 
     @FXML
-    private RadioButton btno5;
+    private Circle btnr9;
 
     @FXML
-    private RadioButton btng5;
+    private Circle btno9;
 
     @FXML
-    private RadioButton btnr6;
+    private Circle btng3;
 
     @FXML
-    private RadioButton btno6;
+    private Circle btnr3;
 
     @FXML
-    private RadioButton btng6;
+    private Circle btno3;
 
     @FXML
-    private RadioButton btnr7;
+    private Circle btng4;
 
     @FXML
-    private RadioButton btno7;
+    private Circle btnr4;
 
     @FXML
-    private RadioButton btng7;
+    private Circle btno4;
 
     @FXML
-    private RadioButton btnr8;
+    private Circle btng7;
 
     @FXML
-    private RadioButton btno8;
+    private Circle btnr7;
 
     @FXML
-    private RadioButton btng8;
+    private Circle btno7;
 
     @FXML
-    private RadioButton btnr9;
+    private Circle btng8;
 
     @FXML
-    private RadioButton btno9;
+    private Circle btnr8;
 
     @FXML
-    private RadioButton btng9;
+    private Circle btno8;
 
     @FXML
-    private RadioButton btnr10;
+    private Circle btng10;
 
     @FXML
-    private RadioButton btno10;
+    private Circle btnr10;
 
     @FXML
-    private RadioButton btng10;
+    private Circle btno10;
+
 
     @FXML
     void initialize() {
@@ -202,49 +204,94 @@ public class gestoredizonaController {
         assert txtnomezona1 != null : "fx:id=\"txtnomezona1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtnedifici != null : "fx:id=\"txtnedifici\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtdataora != null : "fx:id=\"txtdataora\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng1 != null : "fx:id=\"btng1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr1 != null : "fx:id=\"btnr1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno1 != null : "fx:id=\"btno1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng1 != null : "fx:id=\"btng1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng2 != null : "fx:id=\"btng2\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr2 != null : "fx:id=\"btnr2\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno2 != null : "fx:id=\"btno2\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng2 != null : "fx:id=\"btng2\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btnr3 != null : "fx:id=\"btnr3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btno3 != null : "fx:id=\"btno3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng3 != null : "fx:id=\"btng3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btnr4 != null : "fx:id=\"btnr4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btno4 != null : "fx:id=\"btno4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng4 != null : "fx:id=\"btng4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng5 != null : "fx:id=\"btng5\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr5 != null : "fx:id=\"btnr5\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno5 != null : "fx:id=\"btno5\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng5 != null : "fx:id=\"btng5\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng6 != null : "fx:id=\"btng6\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr6 != null : "fx:id=\"btnr6\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno6 != null : "fx:id=\"btno6\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng6 != null : "fx:id=\"btng6\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btnr7 != null : "fx:id=\"btnr7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btno7 != null : "fx:id=\"btno7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng7 != null : "fx:id=\"btng7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btnr8 != null : "fx:id=\"btnr8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btno8 != null : "fx:id=\"btno8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng8 != null : "fx:id=\"btng8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng9 != null : "fx:id=\"btng9\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr9 != null : "fx:id=\"btnr9\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno9 != null : "fx:id=\"btno9\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng9 != null : "fx:id=\"btng9\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng3 != null : "fx:id=\"btng3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btnr3 != null : "fx:id=\"btnr3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btno3 != null : "fx:id=\"btno3\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng4 != null : "fx:id=\"btng4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btnr4 != null : "fx:id=\"btnr4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btno4 != null : "fx:id=\"btno4\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng7 != null : "fx:id=\"btng7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btnr7 != null : "fx:id=\"btnr7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btno7 != null : "fx:id=\"btno7\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng8 != null : "fx:id=\"btng8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btnr8 != null : "fx:id=\"btnr8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btno8 != null : "fx:id=\"btno8\" was not injected: check your FXML file 'gestoredizona.fxml'.";
+        assert btng10 != null : "fx:id=\"btng10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr10 != null : "fx:id=\"btnr10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno10 != null : "fx:id=\"btno10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert btng10 != null : "fx:id=\"btng10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         setta();
     }
     
     public void setta() {
-    	txtnomezona.setText(gestoredicittaController.zona);
-    	txtnomezona1.setText(gestoredicittaController.zona);
-    	//txtnedifici.setText(Integer.toString(zona.getNedifici()));
-    	listviewedifici.setItems(list);
+    	String zona;
+    	if(Utente.getIstance().getRuolo().equals("zona")) {
+    		zona=Utente.getIstance().getIDArea();
+    	}else {
+    		zona=gestoredicittaController.zona;
+    		btnLogout.setVisible(false);
+    	}
+    	txtnomezona.setText(zona);
+    	txtnomezona1.setText(zona);
+    	Zona z= Zona.prendi(zona);
+    	txtnedifici.setText(Integer.toString(z.getNedifici()));
+    	ObservableList<String> listedifici= controller_visualizzazione.prendiedifici(zona);
+    	listviewedifici.setItems(listedifici);
+    	Model.Edificio e;
+    	String s;
+    	for(int i=0; i<controller_visualizzazione.listae.size();i++) {
+    		e=controller_visualizzazione.listae.get(i);
+    		s=e.getNomeedificio();
+    		switch(i) {
+    		case 0: btnedificio1.setText(s);
+    				break;
+    		case 1: btnedificio2.setText(s);
+					break;
+    		case 2: btnedificio3.setText(s);
+					break;
+    		case 3: btnedificio4.setText(s);
+					break;
+    		case 4: btnedificio5.setText(s);
+					break;
+    		case 5: btnedificio6.setText(s);
+					break;
+    		case 6: btnedificio7.setText(s);
+					break;
+    		case 7: btnedificio8.setText(s);
+					break;
+    		case 8: btnedificio9.setText(s);
+					break;
+    		case 9: btnedificio10.setText(s);
+					 break;
+    		}
+    	}
     	ObservableList<Sensore> lista = FXCollections.observableArrayList();
-    	lista=Sensore.prenditips();
+    	lista=Sensore.prendiZN();
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tablezona.setItems(lista);
+    	txtdataora.setText(now());
+    }
+    
+    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
+    public static String now() {
+    	Calendar cal = Calendar.getInstance();
+    	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+    	return sdf.format(cal.getTime());
     }
     
     public void Logout(ActionEvent event) throws IOException {
@@ -259,7 +306,9 @@ public class gestoredizonaController {
     	}
     }
     
+    public static String edificio=null;
     public void Edificio(ActionEvent event) throws Exception {
+    	edificio=btnedificio1.getText();
     	Stage primaryStage = new Stage();
 		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/gestorediedificio.fxml"));
 		Scene scene = new Scene(root);

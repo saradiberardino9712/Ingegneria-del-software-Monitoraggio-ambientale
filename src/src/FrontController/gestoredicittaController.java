@@ -3,11 +3,14 @@ package FrontController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import Controller.controller_logout;
 import Controller.controller_visualizzazione;
 import Model.Città;
 import Model.Sensore;
 import Model.Utente;
+import Model.Zona;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -231,7 +234,7 @@ public class gestoredicittaController {
         assert btnr10 != null : "fx:id=\"btnr10\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         assert btno10 != null : "fx:id=\"btno10\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         assert txtdataora != null : "fx:id=\"txtdataora\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
-        btng1.setDisable(true);
+        btng1.setVisible(false);
         setta();
     }
     
@@ -243,10 +246,10 @@ public class gestoredicittaController {
     	txtnzone.setText(Integer.toString(c.getNzone()));
     	ObservableList<String> listzone= controller_visualizzazione.prendizone(città);
     	listviewzone.setItems(listzone);
-    	Model.Zona z;
+    	Zona z;
     	String s;
-    	for(int i=0; i<controller_visualizzazione.lista.size();i++) {
-    		z=controller_visualizzazione.lista.get(i);
+    	for(int i=0; i<controller_visualizzazione.listaz.size();i++) {
+    		z=controller_visualizzazione.listaz.get(i);
     		s=z.getNomezona();
     		switch(i) {
     		case 0: btnzonaA.setText(s);
@@ -272,10 +275,13 @@ public class gestoredicittaController {
     		}
     	}
     	ObservableList<Sensore> lista = FXCollections.observableArrayList();
-    	lista=Sensore.prenditips();
+    	lista=Sensore.prendiAll();
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tablecitta.setItems(lista);
+    	/*Timer timer = new Timer();
+		TimerTask task = new MyTask(txtdataora);
+		timer.schedule( task, 0, 1000 );*/
     }
     
     public void Logout(ActionEvent event) throws IOException {
@@ -290,7 +296,7 @@ public class gestoredicittaController {
     	}
     }
     
-    public static String zona;
+    public static String zona=null;
     public void ZonaA(ActionEvent event) throws IOException {
     	zona=btnzonaA.getText();
     	Stage primaryStage = new Stage();

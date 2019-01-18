@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import Database.DBEdificio;
 
 public class Edificio {
@@ -19,8 +20,15 @@ public class Edificio {
 		return this.npiani;
 	}
 	
-	public static Edificio prendiedificio() {
-		Edificio newedificio= (Edificio) new DBEdificio().retrieve();
+	public static Edificio prendiedificio(String edificiodato) {
+		Edificio newedificio= (Edificio) new DBEdificio().retrieve(edificiodato);
+		return newedificio;
+	}
+	
+	public static ArrayList<Edificio> prendiedifici(String zonadata) {
+		ArrayList<Object> lista = new ArrayList<>();
+		lista.add(zonadata);
+		ArrayList<Edificio> newedificio= (ArrayList<Edificio>) new DBEdificio().retrieveedifici(lista);
 		return newedificio;
 	}
 }

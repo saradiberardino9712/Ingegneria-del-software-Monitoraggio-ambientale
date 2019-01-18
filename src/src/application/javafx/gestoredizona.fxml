@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="951.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredizonaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="951.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredizonaController">
    <children>
       <Pane prefHeight="71.0" prefWidth="952.0" style="-fx-background-color: #4dffb8;">
          <children>
@@ -60,7 +60,7 @@
             <Font name="Cambria" size="14.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewedifici" layoutX="18.0" layoutY="245.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
+      <ListView fx:id="listviewedifici" layoutX="24.0" layoutY="245.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
       <TableView fx:id="tablezona" layoutX="24.0" layoutY="466.0" prefHeight="200.0" prefWidth="221.0" style="-fx-background-color: #ffffe6;">
         <columns>
           <TableColumn fx:id="tiposensore" prefWidth="137.5999813079834" text="Tipologia Sensore" />
@@ -167,7 +167,7 @@
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Separator layoutX="246.0" layoutY="93.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="615.0" prefWidth="5.0" />
+      <Separator layoutX="255.0" layoutY="96.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="615.0" prefWidth="5.0" />
       <Circle fx:id="btng1" fill="#42cd42" layoutX="291.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btnr1" fill="#ff321e" layoutX="327.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btno1" fill="#f89d14fc" layoutX="309.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
@@ -198,11 +198,24 @@
       <Circle fx:id="btng10" fill="#42cd42" layoutX="471.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btnr10" fill="#ff321e" layoutX="507.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btno10" fill="#f89d14" layoutX="489.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="txtdataora" layoutX="10.0" layoutY="688.0" />
+      <Label fx:id="txtdataora" layoutX="10.0" layoutY="688.0" prefHeight="14.0" prefWidth="238.0">
+         <font>
+            <Font name="Cambria" size="11.0" />
+         </font></Label>
       <MenuBar layoutX="-2.0" layoutY="71.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="955.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="PROFILO" />
         </menus>
       </MenuBar>
+      <Label fx:id="txtnomezona1" layoutX="109.0" layoutY="152.0" prefHeight="18.0" prefWidth="82.0">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtnedifici" layoutX="95.0" layoutY="189.0" prefHeight="18.0" prefWidth="85.0">
+         <font>
+            <Font name="Cambria Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

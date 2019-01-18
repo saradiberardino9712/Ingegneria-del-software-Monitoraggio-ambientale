@@ -198,13 +198,16 @@
             <Font name="Cambria Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="txtdataora" layoutX="13.0" layoutY="686.0" prefWidth="0.0" />
+      <Label fx:id="txtdataora" layoutX="23.0" layoutY="678.0" prefHeight="18.0" prefWidth="221.0">
+         <font>
+            <Font name="Cambria" size="11.0" />
+         </font></Label>
       <MenuBar layoutX="-11.0" layoutY="64.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1002.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="PROFILO" />
         </menus>
       </MenuBar>
-      <Label fx:id="txtnomecitta1" layoutX="107.0" layoutY="143.0" text="Label" />
-      <Label fx:id="txtnzone" layoutX="90.0" layoutY="181.0" text="Label" />
+      <Label fx:id="txtnomecitta1" layoutX="107.0" layoutY="142.0" />
+      <Label fx:id="txtnzone" layoutX="91.0" layoutY="180.0" />
    </children>
 </Pane>
