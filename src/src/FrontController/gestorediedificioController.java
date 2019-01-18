@@ -16,14 +16,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -64,7 +63,7 @@ public class gestorediedificioController {
     
 
     @FXML
-    private TableColumn<Dato, String> stato;
+    private TableColumn<Dato, Background> stato;
 
     @FXML
     private TableColumn<Dato, String> dataora;
@@ -146,7 +145,7 @@ public class gestorediedificioController {
     	tableedificio.setItems(lista);
     	ObservableList<Dato> lista1 = FXCollections.observableArrayList();
     	lista1=Dato.prendidati();
-    	stato.setCellValueFactory(new PropertyValueFactory<Dato,String>("stato"));
+    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Background>("stato"));
     	dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
     	tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
     	ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));

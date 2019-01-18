@@ -2,39 +2,52 @@ package Model;
 
 import java.util.ArrayList;
 import Database.DBUtente;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+import javafx.scene.control.CheckBox;
 
 public class Utente {
 	private static Utente instance;
-	private String nome;
-	private String cognome;
-	private String password;
-	private String email;
+	private SimpleStringProperty nome;
+	private SimpleStringProperty cognome;
+	private SimpleStringProperty password;
+	private SimpleStringProperty email;
 	private String id_area;
-	private String ruolo;
+	private SimpleStringProperty ruolo;
+	private CheckBox select;
 	
 	private Utente(String nome, String cognome, String password, String email, String ruolo, String id_area) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.password = password;
-		this.email = email;
-		this.ruolo=ruolo;
+		this.nome = new SimpleStringProperty(nome);
+		this.cognome = new SimpleStringProperty(cognome);
+		this.password = new SimpleStringProperty(password);
+		this.email = new SimpleStringProperty(email);
+		this.ruolo= new SimpleStringProperty(ruolo);
 		this.id_area=id_area;
 	}
 	
+	public Utente(String nome, String cognome, String password, String email, String ruolo) {
+		this.nome = new SimpleStringProperty(nome);
+		this.cognome = new SimpleStringProperty(cognome);
+		this.password = new SimpleStringProperty(password);
+		this.email = new SimpleStringProperty(email);
+		this.ruolo= new SimpleStringProperty(ruolo);
+		this.select=new CheckBox();
+	}
+	
 	public String getNome() {
-		return nome;
+		return nome.get();
 	}
 	
 	public String getCognome() {
-		return cognome;
+		return cognome.get();
 	}
 	
 	public String getPassword() {
-		return password;
+		return password.get();
 	}
 	
 	public String getEmail() {
-		return email;
+		return email.get();
 	}
 	
 	public String getIDArea() {
@@ -42,7 +55,11 @@ public class Utente {
 	}
 	
 	public String getRuolo() {
-		return ruolo;
+		return ruolo.get();
+	}
+	
+	public CheckBox getSelect(){
+		return select;
 	}
 	
 	public static Utente cercautentedb(String email, String password) {
@@ -59,6 +76,11 @@ public class Utente {
 		lista.add(valore);
 		boolean aggiornadb=new DBUtente().updatelogin(lista);
 		return aggiornadb;
+	}
+	
+	public static ObservableList<Utente> prendiutenti() {
+		ObservableList<Utente> listautenti=new DBUtente().retrieveutenti();
+		return listautenti;
 	}
 	
 	public static Utente delete() {

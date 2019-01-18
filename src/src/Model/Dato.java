@@ -4,9 +4,12 @@ import Database.DBDato;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Color;
 
 public class Dato {
-	private SimpleStringProperty stato;
+	private Background stato;
 	private SimpleStringProperty dataora;
 	private SimpleStringProperty tipo;
 	private SimpleStringProperty ids;
@@ -16,7 +19,7 @@ public class Dato {
 	private SimpleStringProperty zona;
 	
 	public Dato(String stato, String dataora, String tipo, String ids,int valore, String stanza, String edificio, String zona) {
-		this.stato=new SimpleStringProperty(stato);
+		this.stato=new Background(new BackgroundFill(Color.TRANSPARENT,null,null));
 		this.dataora= new SimpleStringProperty(dataora);
 		this.tipo=new SimpleStringProperty(tipo);
 		this.ids=new SimpleStringProperty(ids);
@@ -26,8 +29,8 @@ public class Dato {
 		this.zona=new SimpleStringProperty(zona);
 	}
 	
-	public String getStato() {
-		return stato.get();
+	public Background getStato() {
+		return stato;
 	}
 	
 	public String getDataora() {

@@ -3,8 +3,6 @@ package FrontController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 import Controller.controller_logout;
 import Controller.controller_visualizzazione;
 import Model.Città;
