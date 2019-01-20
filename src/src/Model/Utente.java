@@ -1,65 +1,75 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
 import Database.DBUtente;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
-import javafx.scene.control.CheckBox;
 
 public class Utente {
 	private static Utente instance;
-	private SimpleStringProperty nome;
-	private SimpleStringProperty cognome;
-	private SimpleStringProperty password;
-	private SimpleStringProperty email;
+	private String nome;
+	private String cognome;
+	private String password;
+	private String email;
 	private String id_area;
-	private SimpleStringProperty ruolo;
-	private CheckBox select;
+	private String ruolo;
 	
-	private Utente(String nome, String cognome, String password, String email, String ruolo, String id_area) {
-		this.nome = new SimpleStringProperty(nome);
-		this.cognome = new SimpleStringProperty(cognome);
-		this.password = new SimpleStringProperty(password);
-		this.email = new SimpleStringProperty(email);
-		this.ruolo= new SimpleStringProperty(ruolo);
+	public Utente(String nome, String cognome, String password, String email, String ruolo, String id_area) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.password = password;
+		this.email =email;
+		this.ruolo= ruolo;
 		this.id_area=id_area;
 	}
 	
-	public Utente(String nome, String cognome, String password, String email, String ruolo) {
-		this.nome = new SimpleStringProperty(nome);
-		this.cognome = new SimpleStringProperty(cognome);
-		this.password = new SimpleStringProperty(password);
-		this.email = new SimpleStringProperty(email);
-		this.ruolo= new SimpleStringProperty(ruolo);
-		this.select=new CheckBox();
+	public String getNome() {
+		return nome;
 	}
 	
-	public String getNome() {
-		return nome.get();
+	public void setNome(String newnome) {
+		this.nome=newnome;
 	}
 	
 	public String getCognome() {
-		return cognome.get();
+		return cognome;
+	}
+	
+	public void setCognome(String newcognome) {
+		this.cognome=newcognome;
 	}
 	
 	public String getPassword() {
-		return password.get();
+		return password;
+	}
+	
+	public void setPassword(String newpassword) {
+		this.password=newpassword;
 	}
 	
 	public String getEmail() {
-		return email.get();
+		return email;
+	}
+	
+	public void setEmail(String newemail) {
+		this.email=newemail;
 	}
 	
 	public String getIDArea() {
 		return id_area;
 	}
 	
-	public String getRuolo() {
-		return ruolo.get();
+	public void setIDArea(String newidarea) {
+		this.id_area=newidarea;
 	}
 	
-	public CheckBox getSelect(){
-		return select;
+	public String getRuolo() {
+		return ruolo;
+	}
+	
+	public void setRuolo(String newruolo) {
+		this.ruolo=newruolo;
 	}
 	
 	public static Utente cercautentedb(String email, String password) {
@@ -78,8 +88,8 @@ public class Utente {
 		return aggiornadb;
 	}
 	
-	public static ObservableList<Utente> prendiutenti() {
-		ObservableList<Utente> listautenti=new DBUtente().retrieveutenti();
+	public static ArrayList<Utente> prendiutenti() {
+		ArrayList<Utente> listautenti=new DBUtente().retrieveutenti();
 		return listautenti;
 	}
 	
@@ -97,5 +107,19 @@ public class Utente {
 	
 	public static final Utente getIstance() {
 		return instance;
+	}
+
+	public static boolean deletelista(ArrayList<Utente> eliminare) {
+		boolean elimina= new DBUtente().delete(eliminare);
+		return elimina;
+	}
+
+	public static boolean updatelista(TreeMap<Integer, Utente> mod) {
+		ArrayList<Utente>lista=new ArrayList<>();
+		for(Entry<Integer, Utente> e:mod.entrySet()) {
+			lista.add(e.getValue());
+		}
+		boolean update= new DBUtente().update(lista);
+		return update;
 	}
 }

@@ -35,14 +35,19 @@ public class controller_visualizzazione {
 	}
 	
 	public static ObservableList<String> prendiedifici(String zona) {
-		listae= Edificio.prendiedifici(zona);
+		String db;
+		if(zona.contains("ZA"))
+			db="edificioza01";
+		else
+			db="edificiozb01";
+		listae= Edificio.prendiedifici(zona,db);
 		ObservableList<String> listaedifici= FXCollections.observableArrayList();
 		String nome;
 		if(listae.isEmpty()) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Attenzione!!");
-			alert.setHeaderText("Non ci sono edifici da monitorare.");
-			alert.showAndWait();
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Attenzione!!");
+			alert1.setHeaderText("Non ci sono edifici da monitorare.");
+			alert1.showAndWait();
 		}else {
 			for(Edificio e: listae) {
 				nome=e.getNomeedificio();
@@ -53,13 +58,20 @@ public class controller_visualizzazione {
 	}
 	
 	public static ObservableList<String> prendipiani(String edificio) {
-		listap= Stanza.prendipiani(edificio);
+		String db;
+		if(edificio.contains("ZA01"))
+			db="edificioza01";
+		else if(edificio.contains("ZA02"))
+			db="edificioza02";
+		else
+			db="edificiozb01";
+		listap= Stanza.prendipiani(edificio,db);
 		ObservableList<String> listapiani= FXCollections.observableArrayList();
 		String nome;
 		if(listap.isEmpty()) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Attenzione!!");
-			alert.setHeaderText("Non ci sono edifici da monitorare.");
+			alert.setHeaderText("Non ci sono piani da monitorare.");
 			alert.showAndWait();
 		}else {
 			for(Stanza s: listap) {

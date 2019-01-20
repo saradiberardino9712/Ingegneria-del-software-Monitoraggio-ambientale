@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/login.fxml"));
-			Scene scene = new Scene(root,600,400);
+			Scene scene = new Scene(root,640,480);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

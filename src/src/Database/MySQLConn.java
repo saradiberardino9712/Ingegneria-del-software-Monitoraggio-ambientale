@@ -29,6 +29,8 @@ public class MySQLConn {
 		if(Statement!=null) {
 			Statement.close();
 		}
-		resultSet.close();
+		if(resultSet!=null) {
+			resultSet.close();
+		}
 	}
 }

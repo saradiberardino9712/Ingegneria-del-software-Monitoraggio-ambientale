@@ -1,58 +1,474 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.GestioneUtenti">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.GestioneUtentiController">
    <children>
-      <Label prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #4dffb8;" />
-      <Label alignment="CENTER_RIGHT" layoutX="238.0" layoutY="1.0" prefHeight="44.0" prefWidth="280.0" text="Amministratore" textAlignment="RIGHT">
+      <Label prefHeight="65.0" prefWidth="640.0" style="-fx-background-color: #4dffb8;" />
+      <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="11.0" prefHeight="44.0" prefWidth="280.0" text="Amministratore" textAlignment="RIGHT">
          <font>
             <Font name="Cambria Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="btnHome" layoutX="527.0" layoutY="8.0" mnemonicParsing="false" onAction="#Home" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Home">
+      <Button fx:id="btnHome" layoutX="542.0" layoutY="8.0" mnemonicParsing="false" onAction="#Home" prefHeight="30.0" prefWidth="82.0" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Home">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
       <Label fx:id="txtdataora" layoutX="8.0" layoutY="378.0" />
-      <TableView fx:id="tableutenti" layoutX="26.0" layoutY="114.0" prefHeight="200.0" prefWidth="549.0">
-        <columns>
-            <TableColumn fx:id="select" prefWidth="51.0" text="Select" />
-            <TableColumn fx:id="ruolo" prefWidth="96.0" text="Ruolo" />
-          <TableColumn fx:id="nome" prefWidth="93.0" text="Nome" />
-            <TableColumn fx:id="cognome" prefWidth="108.0" text="Cognome" />
-            <TableColumn fx:id="email" prefWidth="96.0" text="E-mail" />
-            <TableColumn fx:id="password" prefWidth="104.0" text="Password" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnadd" layoutX="26.0" layoutY="329.0" mnemonicParsing="false" onAction="#Add" text="Aggiungi" />
-      <Button fx:id="btnupdate" layoutX="102.0" layoutY="329.0" mnemonicParsing="false" onAction="#Update" text="Modifica" />
-      <Button fx:id="btndelete" layoutX="176.0" layoutY="329.0" mnemonicParsing="false" onAction="#Delete" text="Elimina" />
-      <Label fx:id="txtdataora" layoutX="12.0" layoutY="378.0" />
-      <MenuBar layoutY="65.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #ffffe6;">
-         <menus>
-            <Menu fx:id="MenuHome" mnemonicParsing="false" onAction="#Home" text="Gestione Sistema" />
-         </menus>
-      </MenuBar>
-      <MenuBar layoutX="127.0" layoutY="65.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #d9d9d9;">
-         <menus>
-            <Menu mnemonicParsing="false" text="Gestione Utenti" />
-         </menus>
-      </MenuBar>
-      <ImageView fitHeight="65.0" fitWidth="82.0" layoutY="-1.0">
+      <Button fx:id="btnadd" layoutX="49.0" layoutY="435.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="112.0" text="Aggiungi" />
+      <Button fx:id="btnupdate" layoutX="184.0" layoutY="435.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="112.0" text="Modifica" />
+      <Button fx:id="btndelete" layoutX="316.0" layoutY="435.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="112.0" text="Elimina" />
+      <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-1.0">
          <image>
             <Image url="@logo.PNG" />
          </image>
       </ImageView>
+      <GridPane gridLinesVisible="true" layoutX="6.0" layoutY="102.0" prefHeight="318.0" prefWidth="626.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="77.0" minWidth="10.0" prefWidth="21.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="27.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="85.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="98.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="77.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="102.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="99.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="100.0" text="Nome:" textAlignment="CENTER" GridPane.columnIndex="4">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="82.0" text="N#" textAlignment="CENTER" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="129.0" text="Cognome:" textAlignment="CENTER" GridPane.columnIndex="5">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="95.0" text="Ruolo:" textAlignment="CENTER" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="151.0" text="E-Mail:" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="117.0" text="Password:" textAlignment="CENTER" GridPane.columnIndex="7">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt11" editable="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt12" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt13" editable="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt14" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt15" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt16" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt17" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt18" editable="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt19" editable="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt110" editable="false" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="1" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt21" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt22" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt41" editable="false" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt23" editable="false" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt24" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt25" editable="false" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt42" editable="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt43" editable="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt26" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt210" editable="false" prefHeight="31.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt29" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt28" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt27" editable="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt410" editable="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt49" editable="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt48" editable="false" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt47" editable="false" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt46" editable="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt45" editable="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt44" editable="false" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt55" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt54" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt53" editable="false" prefHeight="29.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt52" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt51" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt59" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt58" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt57" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt56" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt62" editable="false" prefHeight="31.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt71" editable="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt61" editable="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt510" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="5" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt65" editable="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt74" editable="false" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt64" editable="false" prefHeight="31.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt73" editable="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt63" editable="false" prefHeight="32.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt72" editable="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt67" editable="false" prefHeight="33.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt76" editable="false" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt66" editable="false" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt75" editable="false" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt69" editable="false" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt78" editable="false" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt68" editable="false" prefHeight="31.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt77" editable="false" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt710" editable="false" prefHeight="28.0" prefWidth="145.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt610" editable="false" prefHeight="32.0" prefWidth="151.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="6" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt79" editable="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="7" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="check1" alignment="CENTER" centerShape="false" contentDisplay="TOP" mnemonicParsing="false" prefHeight="17.0" prefWidth="23.0" GridPane.rowIndex="1" />
+            <CheckBox fx:id="check2" mnemonicParsing="false" prefHeight="17.0" prefWidth="23.0" GridPane.rowIndex="2" />
+            <CheckBox fx:id="check3" mnemonicParsing="false" GridPane.rowIndex="3" />
+            <CheckBox fx:id="check7" mnemonicParsing="false" GridPane.rowIndex="7" />
+            <CheckBox fx:id="check6" mnemonicParsing="false" GridPane.rowIndex="6" />
+            <CheckBox fx:id="check5" mnemonicParsing="false" GridPane.rowIndex="5" />
+            <CheckBox fx:id="check4" mnemonicParsing="false" GridPane.rowIndex="4" />
+            <CheckBox fx:id="check10" alignment="CENTER" mnemonicParsing="false" GridPane.rowIndex="10" />
+            <CheckBox fx:id="check9" mnemonicParsing="false" GridPane.rowIndex="9" />
+            <CheckBox fx:id="check8" mnemonicParsing="false" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="96.0" text="Area:" textAlignment="CENTER" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font></Label>
+            <TextField fx:id="txt310" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt39" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt38" editable="false" prefHeight="29.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt37" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt36" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt35" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt34" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt33" editable="false" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt32" editable="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt31" editable="false" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #ccffeb;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Cambria" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </GridPane>
+      <Label fx:id="txtdataora" layoutX="8.0" layoutY="458.0">
+         <font>
+            <Font name="Cambria" size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-12.0" layoutY="65.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" text="Gestione Sistema" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="65.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #d9d9d9;" text="Gestione Utenti" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

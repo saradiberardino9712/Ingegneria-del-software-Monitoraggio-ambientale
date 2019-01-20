@@ -14,16 +14,16 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="951.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredizonaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="719.0" prefWidth="1031.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.gestoredizonaController">
    <children>
-      <Pane prefHeight="71.0" prefWidth="952.0" style="-fx-background-color: #4dffb8;">
+      <Pane prefHeight="71.0" prefWidth="1032.0" style="-fx-background-color: #4dffb8;">
          <children>
-            <Label layoutX="556.0" layoutY="19.0" text="Gestore Di Zona">
+            <Label layoutX="541.0" layoutY="13.0" text="Gestore Di Zona">
                <font>
-                  <Font name="Cambria Bold Italic" size="36.0" />
+                  <Font name="Cambria Bold Italic" size="44.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="855.0" layoutY="9.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="82.0" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Logout">
+            <Button fx:id="btnLogout" layoutX="888.0" layoutY="9.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="116.0" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Logout">
                <font>
                   <Font name="Cambria Bold" size="14.0" />
                </font>
@@ -42,37 +42,37 @@
       </Pane>
       <Label layoutX="24.0" layoutY="111.0" text="Informazioni Della Zona:">
          <font>
-            <Font name="Cambria" size="18.0" />
+            <Font name="Cambria" size="19.0" />
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="152.0" text="Nome Zona:">
          <font>
-            <Font name="Cambria" size="14.0" />
+            <Font name="Cambria" size="16.0" />
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="189.0" text="N° Edifici:">
          <font>
-            <Font name="Cambria" size="14.0" />
+            <Font name="Cambria" size="16.0" />
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="227.0" text="Elenco Edifici:">
          <font>
-            <Font name="Cambria" size="14.0" />
+            <Font name="Cambria" size="16.0" />
          </font>
       </Label>
-      <ListView fx:id="listviewedifici" layoutX="24.0" layoutY="245.0" prefHeight="200.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" />
-      <TableView fx:id="tablezona" layoutX="24.0" layoutY="466.0" prefHeight="200.0" prefWidth="221.0" style="-fx-background-color: #ffffe6;">
+      <ListView fx:id="listviewedifici" layoutX="24.0" layoutY="245.0" prefHeight="205.0" prefWidth="166.0" style="-fx-background-color: #ffffe6;" />
+      <TableView fx:id="tablezona" layoutX="24.0" layoutY="466.0" prefHeight="223.0" prefWidth="222.0" style="-fx-background-color: #ffffe6;">
         <columns>
           <TableColumn fx:id="tiposensore" prefWidth="137.5999813079834" text="Tipologia Sensore" />
           <TableColumn fx:id="conteggio" prefWidth="83.20001220703125" text="N° Sensori" />
         </columns>
       </TableView>
-      <ImageView fitHeight="150.0" fitWidth="123.0" layoutX="285.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img%20edificio.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnedificio1" layoutX="303.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ffffc;">
+      <Button fx:id="btnedificio1" layoutX="303.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio1" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #ffffc;">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -87,12 +87,12 @@
             <Image url="@img%20edificio.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnedificio2" layoutX="482.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio2" layoutX="482.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio2" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio3" layoutX="669.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio3" layoutX="669.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio3" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -107,7 +107,7 @@
             <Image url="@img%20edificio.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="821.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="844.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img%20edificio.jpg" />
          </image>
@@ -122,7 +122,7 @@
             <Image url="@img%20edificio.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="821.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="842.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img%20edificio.jpg" />
          </image>
@@ -132,37 +132,37 @@
             <Image url="@img%20edificio.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnedificio4" layoutX="838.0" layoutY="269.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio4" layoutX="861.0" layoutY="265.0" mnemonicParsing="false" onAction="#Edificio4" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio5" layoutX="303.0" layoutY="470.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio5" layoutX="303.0" layoutY="470.0" mnemonicParsing="false" onAction="#Edificio5" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio6" layoutX="483.0" layoutY="469.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio6" layoutX="483.0" layoutY="469.0" mnemonicParsing="false" onAction="#Edificio6" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio7" layoutX="669.0" layoutY="470.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio7" layoutX="669.0" layoutY="470.0" mnemonicParsing="false" onAction="#Edificio7" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio8" layoutX="838.0" layoutY="470.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio8" layoutX="861.0" layoutY="466.0" mnemonicParsing="false" onAction="#Edificio8" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio9" layoutX="302.0" layoutY="670.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio9" layoutX="302.0" layoutY="670.0" mnemonicParsing="false" onAction="#Edificio9" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnedificio10" layoutX="482.0" layoutY="670.0" mnemonicParsing="false" onAction="#Edificio" prefHeight="26.0" prefWidth="82.0">
+      <Button fx:id="btnedificio10" layoutX="482.0" layoutY="670.0" mnemonicParsing="false" onAction="#Edificio10" prefHeight="26.0" prefWidth="82.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -186,33 +186,33 @@
       <Circle fx:id="btng3" fill="#42cd42" layoutX="659.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btnr3" fill="#ff321e" layoutX="695.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btno3" fill="#f89d14" layoutX="677.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btng4" fill="#42cd42" layoutX="828.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btnr4" fill="#ff321e" layoutX="864.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btno4" fill="#f89d14" layoutX="846.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btng4" fill="#42cd42" layoutX="849.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btnr4" fill="#ff321e" layoutX="885.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btno4" fill="#f89d14" layoutX="867.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btng7" fill="#42cd42" layoutX="659.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btnr7" fill="#ff321e" layoutX="695.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btno7" fill="#f89d14" layoutX="677.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btng8" fill="#42cd42" layoutX="828.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btnr8" fill="#ff321e" layoutX="864.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="btno8" fill="#f89d14" layoutX="846.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btng8" fill="#42cd42" layoutX="849.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btnr8" fill="#ff321e" layoutX="885.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="btno8" fill="#f89d14" layoutX="867.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btng10" fill="#42cd42" layoutX="471.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btnr10" fill="#ff321e" layoutX="507.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fx:id="btno10" fill="#f89d14" layoutX="489.0" layoutY="523.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="txtdataora" layoutX="10.0" layoutY="688.0" prefHeight="14.0" prefWidth="238.0">
+      <Label fx:id="txtdataora" layoutX="18.0" layoutY="698.0" prefHeight="14.0" prefWidth="35.0">
          <font>
             <Font name="Cambria" size="11.0" />
          </font></Label>
-      <MenuBar layoutX="-2.0" layoutY="71.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="955.0" style="-fx-background-color: #ffffe6;">
+      <MenuBar layoutX="-2.0" layoutY="71.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="1034.0" style="-fx-background-color: #ffffe6;">
         <menus>
           <Menu mnemonicParsing="false" text="PROFILO" />
         </menus>
       </MenuBar>
-      <Label fx:id="txtnomezona1" layoutX="109.0" layoutY="152.0" prefHeight="18.0" prefWidth="82.0">
+      <Label fx:id="txtnomezona1" layoutX="121.0" layoutY="152.0" prefHeight="18.0" prefWidth="68.0">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="txtnedifici" layoutX="95.0" layoutY="189.0" prefHeight="18.0" prefWidth="85.0">
+      <Label fx:id="txtnedifici" layoutX="107.0" layoutY="189.0" prefHeight="18.0" prefWidth="58.0">
          <font>
             <Font name="Cambria Italic" size="14.0" />
          </font>

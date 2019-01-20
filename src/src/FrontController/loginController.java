@@ -74,6 +74,7 @@ public class loginController {
 				case "admin":((Node) event.getSource()).getScene().getWindow().hide();
 							 Stage primaryStage3 = new Stage();
 							 Pane root3 = (Pane) FXMLLoader.load(getClass().getResource("/application/javafx/Amministratore.fxml"));
+							 primaryStage3.setResizable(true);
 							 Scene scene3 = new Scene(root3);
 							 primaryStage3.setScene(scene3);
 							 primaryStage3.show();

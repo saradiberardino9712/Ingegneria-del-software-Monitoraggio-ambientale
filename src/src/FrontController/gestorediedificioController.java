@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Controller.controller_logout;
+import Controller.controller_malfunzionamenti;
 import Controller.controller_visualizzazione;
 import Model.Dato;
 import Model.Edificio;
@@ -22,7 +23,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -61,9 +61,8 @@ public class gestorediedificioController {
     @FXML
     private TableView<Dato> table1;
     
-
     @FXML
-    private TableColumn<Dato, Background> stato;
+    private TableColumn<Dato, Button> stato;
 
     @FXML
     private TableColumn<Dato, String> dataora;
@@ -72,7 +71,7 @@ public class gestorediedificioController {
     private TableColumn<Dato, String> tipo;
 
     @FXML
-    private TableColumn<Dato,String> ids;
+    private TableColumn<Dato, String> ids;
 
     @FXML
     private TableColumn<Dato, Integer> valore;
@@ -85,18 +84,21 @@ public class gestorediedificioController {
 
     @FXML
     private TableColumn<Dato, String> zona;
+    
+    @FXML
+    private Button btnpiano1;
 
     @FXML
-    private TableView<?> table2;
+    private Button btnpiano2;
 
     @FXML
-    private TableView<?> table3;
+    private Button btnpiano3;
 
     @FXML
-    private TableView<?> table4;
+    private Button btnpiano4;
 
     @FXML
-    private TableView<?> table5;
+    private Button btnpiano5;
     
     @FXML
     void initialize() {
@@ -117,15 +119,16 @@ public class gestorediedificioController {
         assert stanza != null : "fx:id=\"stanza\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
         assert edificio != null : "fx:id=\"edificio\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
         assert zona != null : "fx:id=\"zona\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
-        assert table2 != null : "fx:id=\"table2\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
-        assert table3 != null : "fx:id=\"table3\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
-        assert table4 != null : "fx:id=\"table4\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
-        assert table5 != null : "fx:id=\"table5\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
+        assert btnpiano1 != null : "fx:id=\"btnpiano1\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
+        assert btnpiano2 != null : "fx:id=\"btnpiano2\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
+        assert btnpiano3 != null : "fx:id=\"btnpiano3\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
+        assert btnpiano4 != null : "fx:id=\"btnpiano4\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
+        assert btnpiano5 != null : "fx:id=\"btnpiano5\" was not injected: check your FXML file 'gestorediedificio.fxml'.";
         setta();
     }
     
+    public static String ed;
 	public void setta() {
-		String ed;
     	if(Utente.getIstance().getRuolo().equals("edificio")) {
     		ed=Utente.getIstance().getIDArea();
     	}else {
@@ -134,7 +137,14 @@ public class gestorediedificioController {
     	}
     	txtnomeedificio.setText(ed);
     	txtnomeedificio1.setText(ed);
-    	Edificio e=Edificio.prendiedificio(ed);
+    	String db;
+		if(ed.contains("ZA01"))
+			db="edificioza01";
+		else if(ed.contains("ZA02"))
+			db="edificioza02";
+		else
+			db="edificiozb01";
+    	Edificio e=Edificio.prendiedificio(ed,db);
     	txtnpiani.setText(Integer.toString(e.getNpiani()));
     	ObservableList<String> listpiani= controller_visualizzazione.prendipiani(ed);
     	listviewpiani.setItems(listpiani);
@@ -143,19 +153,8 @@ public class gestorediedificioController {
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tableedificio.setItems(lista);
-    	ObservableList<Dato> lista1 = FXCollections.observableArrayList();
-    	lista1=Dato.prendidati();
-    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Background>("stato"));
-    	dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
-    	tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
-    	ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
-    	valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
-    	stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
-    	edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
-    	zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
-    	table1.setItems(lista1);
     }
-	
+
     public void Logout(ActionEvent event) throws IOException {
     	boolean disattiva=controller_logout.disattivautente();
     	if(disattiva) {
@@ -167,6 +166,100 @@ public class gestorediedificioController {
     		primaryStage.show();
     	}
     }
+    
+    public void Piano1(ActionEvent event) {
+    	btnpiano1.setStyle("-fx-background-color:#ffffe6");
+    	btnpiano2.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano3.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano4.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano5.setStyle("-fx-background-color:#f2f2f2");
+    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Button>("stato"));
+		dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
+		tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
+		ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
+		valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
+		stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
+		edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
+		zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
+		ObservableList<Dato> lista = FXCollections.observableArrayList();
+    	lista=controller_malfunzionamenti.analizza(ed,1);
+    	table1.getItems().addAll(lista);
+    }
 
+    public void Piano2(ActionEvent event) {
+    	btnpiano1.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano2.setStyle("-fx-background-color:#ffffe6");
+    	btnpiano3.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano4.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano5.setStyle("-fx-background-color:#f2f2f2");
+    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Button>("stato"));
+		dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
+		tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
+		ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
+		valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
+		stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
+		edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
+		zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
+		ObservableList<Dato> lista = FXCollections.observableArrayList();
+    	lista=controller_malfunzionamenti.analizza(ed,1);
+    	table1.getItems().addAll(lista);
+    }
+
+    public void Piano3(ActionEvent event) {
+    	btnpiano1.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano2.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano3.setStyle("-fx-background-color:#ffffe6");
+    	btnpiano4.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano5.setStyle("-fx-background-color:#f2f2f2");
+    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Button>("stato"));
+		dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
+		tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
+		ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
+		valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
+		stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
+		edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
+		zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
+		ObservableList<Dato> lista = FXCollections.observableArrayList();
+    	lista=controller_malfunzionamenti.analizza(ed,1);
+    	table1.getItems().addAll(lista);
+    }
+
+    public void Piano4(ActionEvent event) {
+    	btnpiano1.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano2.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano3.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano4.setStyle("-fx-background-color:#ffffe6");
+    	btnpiano5.setStyle("-fx-background-color:#f2f2f2");
+    	stato.setCellValueFactory(new PropertyValueFactory<Dato,Button>("stato"));
+		dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
+		tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
+		ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
+		valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
+		stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
+		edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
+		zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
+		ObservableList<Dato> lista = FXCollections.observableArrayList();
+    	lista=controller_malfunzionamenti.analizza(ed,1);
+    	table1.getItems().addAll(lista);
+    }
+
+    public void Piano5(ActionEvent event) {
+    	btnpiano1.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano2.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano3.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano4.setStyle("-fx-background-color:#f2f2f2");
+    	btnpiano5.setStyle("-fx-background-color:#ffffe6");
+	    stato.setCellValueFactory(new PropertyValueFactory<Dato,Button>("stato"));
+		dataora.setCellValueFactory(new PropertyValueFactory<Dato,String>("dataora"));
+		tipo.setCellValueFactory(new PropertyValueFactory<Dato,String>("tipo"));
+		ids.setCellValueFactory(new PropertyValueFactory<Dato,String>("ids"));
+		valore.setCellValueFactory(new PropertyValueFactory<Dato,Integer>("valore"));
+		stanza.setCellValueFactory(new PropertyValueFactory<Dato,String>("stanza"));
+		edificio.setCellValueFactory(new PropertyValueFactory<Dato,String>("edificio"));
+		zona.setCellValueFactory(new PropertyValueFactory<Dato,String>("zona"));
+		ObservableList<Dato> lista = FXCollections.observableArrayList();
+	    lista=controller_malfunzionamenti.analizza(ed,1);
+	    table1.getItems().addAll(lista);
+    }
 }
 

@@ -1,68 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="txtdataora" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #ccffeb;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontController.GestioneAreaController">
    <children>
-      <Label prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #4dffb8;" />
-      <Label alignment="CENTER_RIGHT" layoutX="238.0" layoutY="1.0" prefHeight="44.0" prefWidth="280.0" text="Amministratore" textAlignment="RIGHT">
+      <Label prefHeight="68.0" prefWidth="640.0" style="-fx-background-color: #4dffb8;" />
+      <Label alignment="CENTER_RIGHT" layoutX="238.0" layoutY="12.0" prefHeight="44.0" prefWidth="280.0" text="Amministratore" textAlignment="RIGHT">
          <font>
             <Font name="Cambria Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="527.0" layoutY="8.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Home">
+      <Button fx:id="btnHome" layoutX="548.0" layoutY="8.0" mnemonicParsing="false" onAction="#Home" prefHeight="30.0" prefWidth="84.0" style="-fx-border-color: black; -fx-border-radius: 1px 1px 1px 1px; -fx-border-width: 1 1 1 1;" text="Home">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Button>
-      <MenuBar layoutY="67.0" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #ffffe6;">
-         <menus>
-            <Menu mnemonicParsing="false" text="Gestione Sistema">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <Label fx:id="txtdataora" layoutX="8.0" layoutY="378.0" />
-      <MenuButton layoutX="11.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Zona" />
-      <MenuButton layoutX="99.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Edificio" />
-      <TableView layoutX="11.0" layoutY="143.0" prefHeight="200.0" prefWidth="579.0">
-        <columns>
-          <TableColumn prefWidth="84.0" text="ID Stanza" />
-            <TableColumn prefWidth="50.0" text="Piano" />
-          <TableColumn prefWidth="93.0" text="Tipo Stanza" />
-            <TableColumn prefWidth="98.0" text="Priorità" />
-            <TableColumn prefWidth="88.0" text="Temperatura" />
-            <TableColumn prefWidth="89.0" text="Pressione" />
-            <TableColumn prefWidth="82.0" text="Umidità" />
-        </columns>
-      </TableView>
-      <Button layoutX="238.0" layoutY="353.0" mnemonicParsing="false" text="Modifica" />
-      <MenuBar layoutX="127.0" layoutY="67.0" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #d9d9d9;">
-         <menus>
-            <Menu mnemonicParsing="false" text="Gestione Area">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
+      <MenuButton layoutX="11.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Zona" />
+      <MenuButton layoutX="127.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Edificio" />
+      <Button layoutX="266.0" layoutY="428.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Modifica" />
       <ImageView fitHeight="65.0" fitWidth="82.0" layoutY="2.0">
          <image>
             <Image url="@logo.PNG" />
          </image>
       </ImageView>
+      <GridPane gridLinesVisible="true" layoutX="5.0" layoutY="143.0" prefHeight="273.0" prefWidth="629.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="82.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="54.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="109.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="77.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="99.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="6" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="7" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="8" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="9" />
+            <CheckBox mnemonicParsing="false" GridPane.rowIndex="10" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="ID Stanza:" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="117.0" text="Piano:" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="Tipo Stanza:" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="Priorità:" GridPane.columnIndex="4">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="Temperatura:" GridPane.columnIndex="5">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="Pressione:" GridPane.columnIndex="6">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="132.0" text="Umidità:" GridPane.columnIndex="7">
+               <font>
+                  <Font name="Cambria Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField prefHeight="11.0" prefWidth="52.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="10" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="7" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Label layoutX="14.0" layoutY="453.0">
+         <font>
+            <Font name="Cambria" size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-17.0" layoutY="68.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #ffffe6;" text="Gestione Sistema" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="138.0" layoutY="68.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #d9d9d9;" text="Gestione Area" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

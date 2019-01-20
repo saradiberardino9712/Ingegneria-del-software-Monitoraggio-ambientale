@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import Model.Utente;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -46,12 +44,12 @@ public class DBUtente {
         return null;
 	} 
 	
-	public ObservableList<Utente> retrieveutenti() {
+	public ArrayList<Utente> retrieveutenti() {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
 		Utente utente=null;
-		ObservableList<Utente> listautenti= FXCollections.observableArrayList();
+		ArrayList<Utente> listautenti= new ArrayList<>();
 		try{
 			connect=MySQLConn.getConnection();
 			Statement = connect.createStatement();
@@ -62,7 +60,8 @@ public class DBUtente {
 				String password = resultSet.getString("password");
 				String email = resultSet.getString("email");
 				String ruolo= resultSet.getString("ruolo");
-				utente = new Utente(nome, cognome, password, email, ruolo);
+				String id_area= resultSet.getString("id_area");
+				utente = new Utente(nome, cognome, password, email, ruolo,id_area);
 				listautenti.add(utente);
 			}	
 			MySQLConn.close(connect,Statement,resultSet);
@@ -90,6 +89,68 @@ public class DBUtente {
 				Statement.executeUpdate("UPDATE edificioza01.utente SET attivo=true WHERE email='" + utente.getEmail() + " ' AND password='" + utente.getPassword() + " ' ");
 			else
 				Statement.executeUpdate("UPDATE edificioza01.utente SET attivo=false WHERE email='" + utente.getEmail() + " ' AND password='" + utente.getPassword() + " ' ");
+			MySQLConn.close(connect,Statement,null);
+		}catch(SQLException ex){
+			success=false;
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Errore");
+			alert.setHeaderText("Errore Database");
+			alert.setContentText(ex.getMessage());
+			alert.showAndWait();
+		}
+		return success;
+	}
+
+	public boolean delete(ArrayList<Utente> eliminare) {
+		Connection connect = null;
+		Statement Statement = null;
+		boolean success=true; 
+		try{
+			connect=MySQLConn.getConnection();
+			Statement = connect.createStatement();
+			String email;
+			String password;
+			for(Utente u:eliminare) {
+				email=u.getEmail();
+				password=u.getPassword();
+				Statement.executeUpdate("DELETE FROM edificioza01.utente WHERE password='"+password+"' and email='"+email+"'");
+			}
+			MySQLConn.close(connect,Statement,null);
+		}catch(SQLException ex){
+			success=false;
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Errore");
+			alert.setHeaderText("Errore Database");
+			alert.setContentText(ex.getMessage());
+			alert.showAndWait();
+		}
+		return success;
+	}
+
+	public boolean update(ArrayList<Utente> modificare) {
+		Connection connect = null;
+		Statement Statement = null;
+		boolean success=true; 
+		try{
+			connect=MySQLConn.getConnection();
+			Statement = connect.createStatement();
+			String email;
+			String password;
+			String ruolo;
+			String area;
+			String nome;
+			String cognome;
+			for(Utente u:modificare) {
+				email=u.getEmail();
+				password=u.getPassword();
+				ruolo=u.getRuolo();
+				area=u.getIDArea();
+				nome=u.getNome();
+				cognome=u.getCognome();
+				Statement.executeUpdate("UPDATE edificioza01.utente SET password='"+password+"' and idruolo=(select idruolo from ruolo where ruolo='"+ruolo+"')"
+						+ "and id_area='"+area+"'and nome='"+nome+"' and cognome='"+cognome+"'WHERE email='" + email + " ' ");
+			}
+			MySQLConn.close(connect,Statement,null);
 		}catch(SQLException ex){
 			success=false;
 			Alert alert = new Alert(AlertType.INFORMATION);

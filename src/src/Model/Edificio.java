@@ -20,15 +20,13 @@ public class Edificio {
 		return this.npiani;
 	}
 	
-	public static Edificio prendiedificio(String edificiodato) {
-		Edificio newedificio= (Edificio) new DBEdificio().retrieve(edificiodato);
+	public static Edificio prendiedificio(String edificiodato,String db) {
+		Edificio newedificio= (Edificio) new DBEdificio().retrieve(edificiodato,db);
 		return newedificio;
 	}
 	
-	public static ArrayList<Edificio> prendiedifici(String zonadata) {
-		ArrayList<Object> lista = new ArrayList<>();
-		lista.add(zonadata);
-		ArrayList<Edificio> newedificio= (ArrayList<Edificio>) new DBEdificio().retrieveedifici(lista);
+	public static ArrayList<Edificio> prendiedifici(String zonadata,String db) {
+		ArrayList<Edificio> newedificio= (ArrayList<Edificio>) new DBEdificio().retrieveedifici(zonadata,db);
 		return newedificio;
 	}
 }

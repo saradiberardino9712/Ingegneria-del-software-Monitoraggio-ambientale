@@ -2,8 +2,6 @@ package FrontController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import Controller.controller_logout;
 import Controller.controller_visualizzazione;
@@ -17,11 +15,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -88,9 +88,6 @@ public class gestoredizonaController {
 
     @FXML
     private Label txtnedifici;
-
-    @FXML
-    private Label txtdataora;
 
     @FXML
     private Circle btng1;
@@ -182,7 +179,6 @@ public class gestoredizonaController {
     @FXML
     private Circle btno10;
 
-
     @FXML
     void initialize() {
         assert btnLogout != null : "fx:id=\"btnLogout\" was not injected: check your FXML file 'gestoredizona.fxml'.";
@@ -203,7 +199,6 @@ public class gestoredizonaController {
         assert btnedificio10 != null : "fx:id=\"btnedificio10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtnomezona1 != null : "fx:id=\"txtnomezona1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert txtnedifici != null : "fx:id=\"txtnedifici\" was not injected: check your FXML file 'gestoredizona.fxml'.";
-        assert txtdataora != null : "fx:id=\"txtdataora\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btng1 != null : "fx:id=\"btng1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btnr1 != null : "fx:id=\"btnr1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno1 != null : "fx:id=\"btno1\" was not injected: check your FXML file 'gestoredizona.fxml'.";
@@ -235,21 +230,34 @@ public class gestoredizonaController {
         assert btnr10 != null : "fx:id=\"btnr10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         assert btno10 != null : "fx:id=\"btno10\" was not injected: check your FXML file 'gestoredizona.fxml'.";
         setta();
+        button();
     }
     
-    public void setta() {
-    	String zona;
-    	if(Utente.getIstance().getRuolo().equals("zona")) {
-    		zona=Utente.getIstance().getIDArea();
+    public void button() {
+    	if(zon.contains("ZB")) {
+    		btng1.setVisible(false);
+    		btno1.setVisible(false);
     	}else {
-    		zona=gestoredicittaController.zona;
+    		btng1.setVisible(false);
+    		btng2.setVisible(false);
+    		btno1.setVisible(false);
+    		btno2.setVisible(false);
+    	}
+    }
+    
+	private static String zon;
+    public void setta() {
+    	if(Utente.getIstance().getRuolo().equals("zona")) {
+    		zon=Utente.getIstance().getIDArea();
+    	}else {
+    		zon=gestoredicittaController.zona;
     		btnLogout.setVisible(false);
     	}
-    	txtnomezona.setText(zona);
-    	txtnomezona1.setText(zona);
-    	Zona z= Zona.prendi(zona);
+    	txtnomezona.setText(zon);
+    	txtnomezona1.setText(zon);
+    	Zona z= Zona.prendi(zon);
     	txtnedifici.setText(Integer.toString(z.getNedifici()));
-    	ObservableList<String> listedifici= controller_visualizzazione.prendiedifici(zona);
+    	ObservableList<String> listedifici= controller_visualizzazione.prendiedifici(zon);
     	listviewedifici.setItems(listedifici);
     	Model.Edificio e;
     	String s;
@@ -284,14 +292,6 @@ public class gestoredizonaController {
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tablezona.setItems(lista);
-    	txtdataora.setText(now());
-    }
-    
-    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
-    public static String now() {
-    	Calendar cal = Calendar.getInstance();
-    	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
-    	return sdf.format(cal.getTime());
     }
     
     public void Logout(ActionEvent event) throws IOException {
@@ -307,12 +307,84 @@ public class gestoredizonaController {
     }
     
     public static String edificio=null;
-    public void Edificio(ActionEvent event) throws Exception {
+    public void Edificio1(ActionEvent event) throws Exception {
     	edificio=btnedificio1.getText();
     	Stage primaryStage = new Stage();
 		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/gestorediedificio.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+    }
+
+    public void Edificio10(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio2(ActionEvent event) throws IOException {
+    	if(zon.contains("ZB")) {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("Attenzione!!");
+    		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+    		alert.showAndWait();
+    	}else {
+    		edificio=btnedificio2.getText();
+    		Stage primaryStage = new Stage();
+    		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/gestorediedificio.fxml"));
+    		Scene scene = new Scene(root);
+    		primaryStage.setScene(scene);
+    		primaryStage.show();
+    	}
+    }
+
+    public void Edificio3(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio4(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio5(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio6(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio7(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio8(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
+    }
+
+    public void Edificio9(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 }

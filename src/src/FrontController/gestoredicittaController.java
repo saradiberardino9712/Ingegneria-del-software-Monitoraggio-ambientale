@@ -16,11 +16,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -179,9 +181,6 @@ public class gestoredicittaController {
     private Circle btno10;
 
     @FXML
-    private Label txtdataora;
-
-    @FXML
     void initialize() {
         assert btnLogout != null : "fx:id=\"btnLogout\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         assert txtnomecitta != null : "fx:id=\"txtnomecitta\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
@@ -231,8 +230,10 @@ public class gestoredicittaController {
         assert btng10 != null : "fx:id=\"btng10\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         assert btnr10 != null : "fx:id=\"btnr10\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         assert btno10 != null : "fx:id=\"btno10\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
-        assert txtdataora != null : "fx:id=\"txtdataora\" was not injected: check your FXML file 'gestoredicitta.fxml'.";
         btng1.setVisible(false);
+        btng2.setVisible(false);
+        btno1.setVisible(false);
+        btno2.setVisible(false);
         setta();
     }
     
@@ -277,9 +278,6 @@ public class gestoredicittaController {
     	tiposensore.setCellValueFactory(new PropertyValueFactory<Sensore,String>("tiposensore"));
     	conteggio.setCellValueFactory(new PropertyValueFactory<Sensore,Integer>("conteggio"));
     	tablecitta.setItems(lista);
-    	/*Timer timer = new Timer();
-		TimerTask task = new MyTask(txtdataora);
-		timer.schedule( task, 0, 1000 );*/
     }
     
     public void Logout(ActionEvent event) throws IOException {
@@ -304,48 +302,68 @@ public class gestoredicittaController {
 		primaryStage.show();
     }
 
-    @FXML
-    void ZonaL(ActionEvent event) {
-
+    public void ZonaL(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaB(ActionEvent event) {
-
+    public void ZonaB(ActionEvent event) throws IOException {
+    	zona=btnzonaB.getText();
+    	Stage primaryStage = new Stage();
+		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/gestoredizona.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
     }
 
-    @FXML
-    void ZonaC(ActionEvent event) {
-
+    public void ZonaC(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaD(ActionEvent event) {
-
+    public void ZonaD(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaE(ActionEvent event) {
-
+    public void ZonaE(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaF(ActionEvent event) {
-
+    public void ZonaF(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaG(ActionEvent event) {
-
+    public void ZonaG(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaH(ActionEvent event) {
-
+    public void ZonaH(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 
-    @FXML
-    void ZonaI(ActionEvent event) {
-
+    public void ZonaI(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Attenzione!!");
+		alert.setHeaderText("Il prototipo comprende solo la gestione di 2 edifici della zona A e 1 della zona B");
+		alert.showAndWait();
     }
 }

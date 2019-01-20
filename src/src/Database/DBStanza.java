@@ -11,7 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class DBStanza {
 	
-	public ArrayList<Stanza> retrievepiani(String edificiodato) {
+	public ArrayList<Stanza> retrievepiani(String edificiodato,String db) {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
@@ -20,7 +20,7 @@ public class DBStanza {
 		try{
 			connect=MySQLConn.getConnection();
 			Statement = connect.createStatement();
-			resultSet = Statement.executeQuery("SELECT distinct s.piano FROM edificioza01.stanza s join edificioza01.edificio e on (e.ID=s.idedificio) where e.idedificio='"+edificiodato+"'");
+			resultSet = Statement.executeQuery("SELECT distinct s.piano FROM "+db+".stanza s join "+db+".edificio e on (e.ID=s.idedificio) where e.idedificio='"+edificiodato+"'");
 			while(resultSet.next()) {
 				String nomepiano=resultSet.getString("piano");
 				s = new Stanza(nomepiano);

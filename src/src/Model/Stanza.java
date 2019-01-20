@@ -15,8 +15,8 @@ public class Stanza {
 		return piano;
 	}
 	
-	public static ArrayList<Stanza> prendipiani(String edificiodato) {
-		ArrayList<Stanza> newpiano= (ArrayList<Stanza>) new DBStanza().retrievepiani(edificiodato);
+	public static ArrayList<Stanza> prendipiani(String edificiodato, String db) {
+		ArrayList<Stanza> newpiano= (ArrayList<Stanza>) new DBStanza().retrievepiani(edificiodato,db);
 		return newpiano;
 	}
 }

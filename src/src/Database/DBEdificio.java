@@ -11,7 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class DBEdificio {
 	
-	public ArrayList<Edificio> retrieveedifici(ArrayList<Object> args) {
+	public ArrayList<Edificio> retrieveedifici(String zonadata,String db) {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
@@ -20,7 +20,7 @@ public class DBEdificio {
 		try{
 			connect=MySQLConn.getConnection();
 			Statement = connect.createStatement();
-			resultSet = Statement.executeQuery("SELECT e.idedificio,e.n_piani FROM edificioza01.zona z join edificioza01.edificio e on (z.ID=e.idzona) where z.idzona='"+args.get(0)+"'");
+			resultSet = Statement.executeQuery("SELECT e.idedificio,e.n_piani FROM "+db+".zona z join "+db+".edificio e on (z.ID=e.idzona) where z.idzona='"+zonadata+"'");
 			while(resultSet.next()) {
 				String nomeedificio=resultSet.getString("idedificio");
 				int npiani = resultSet.getInt("n_piani");
@@ -40,7 +40,7 @@ public class DBEdificio {
 		return null;
 	}
 	
-	public Edificio retrieve(String edificiodato) {
+	public Edificio retrieve(String edificiodato,String db) {
 		Connection connect = null;
 		Statement Statement = null;
 		ResultSet resultSet = null;
@@ -48,7 +48,7 @@ public class DBEdificio {
 		try{
 			connect=MySQLConn.getConnection();
 			Statement = connect.createStatement();
-			resultSet = Statement.executeQuery("SELECT * FROM edificioza01.edificio where idedificio='"+edificiodato+ "'");
+			resultSet = Statement.executeQuery("SELECT * FROM "+db+".edificio where idedificio='"+edificiodato+ "'");
 			while(resultSet.next()) {
 				String nomeedificio=resultSet.getString("idedificio");
 				int npiani = resultSet.getInt("n_piani");

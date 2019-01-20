@@ -3,7 +3,6 @@ package FrontController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import Controller.controller_logout;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,16 +38,6 @@ public class AmministratoreController {
     private Label txtdataora;
 
     @FXML
-    void GestioneArea(ActionEvent event) {
-
-    }
-
-    @FXML
-    void GestioneSoglie(ActionEvent event) {
-
-    }
-
-    @FXML
     void initialize() {
         assert btnLogout != null : "fx:id=\"btnLogout\" was not injected: check your FXML file 'Amministratore.fxml'.";
         assert btnutenti != null : "fx:id=\"btnutenti\" was not injected: check your FXML file 'Amministratore.fxml'.";
@@ -73,6 +62,24 @@ public class AmministratoreController {
     	((Node)event.getSource()).getScene().getWindow().hide();
 		Stage primaryStage = new Stage();
 		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/utenti.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+    }
+    
+    public void GestioneSoglie(ActionEvent event) throws IOException {
+    	((Node)event.getSource()).getScene().getWindow().hide();
+		Stage primaryStage = new Stage();
+		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/soglie.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+    }
+    
+    public void GestioneArea(ActionEvent event) throws IOException {
+    	((Node)event.getSource()).getScene().getWindow().hide();
+		Stage primaryStage = new Stage();
+		Pane root = (Pane)FXMLLoader.load(getClass().getResource("/application/javafx/area.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
